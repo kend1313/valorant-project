@@ -1,5 +1,8 @@
 from flask import Flask, render_template # type: ignore
 import sqlite3
+db = sqlite3.connect('val.db')
+cur
+
 
 app = Flask(__name__)
 
