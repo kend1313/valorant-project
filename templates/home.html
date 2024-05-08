@@ -1,8 +1,26 @@
 {% extends "layout.html"%}
 {% block body %}
 
-<header>
+<h1>
     List of Agents
-</header>
+</h1>
+<table class="w3-table-all">
+    <tr>
+        <th>name</th>
+        <th>profession</th>
+        <th>origins</th>
+        <th>real name</th>
+    </tr>
+    {% for agent in agents %}
+    <tr>
+        <td>{{agent[0]}}</td>
+        <td>{{agent[1]}}</td>
+        <td>{{agent[2]}}</td>
+        <td>{{agent[3]}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<p>{{agents}}</p>
 
 {% endblock %}
