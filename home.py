@@ -11,7 +11,10 @@ def home():
     sql = "SELECT name,professions,origin,real_name FROM Agents;"
     cursor.execute(sql)
     results = cursor.fetchall()
-    print(results)
+    # print them nicely.
+    for val in results:
+        print(val)
+
     # close the db.
     db.close()
     return render_template("home.html",agents=results)
