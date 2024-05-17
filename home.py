@@ -8,7 +8,7 @@ app = Flask(__name__)
 def home():
     db = sqlite3.connect('val.db')
     cursor = db.cursor()
-    sql = "SELECT name,professions,origin,real_name FROM Agents;"
+    sql = "SELECT Agents.name, Professions.name, Origin.name, real_name from Agents join Professions On Agents.professions = Professions.id join Origin on Agents.origin = origin.id;"
     cursor.execute(sql)
     results = cursor.fetchall()
     # print them nicely.
