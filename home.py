@@ -1,6 +1,19 @@
+#docstring - Ken Dong - Agents database application
+#imports
+
 from flask import Flask, render_template # type: ignore
 
 import sqlite3
+
+#contants and variables
+
+
+
+#functions
+
+
+
+#main code
 
 app = Flask(__name__)
 

@@ -1,0 +1,30 @@
+#docstring -Ken Dong - agents database application
+#imports
+import sqlite3
+
+#contant and variables
+DATABASE = "val.db"
+
+
+#function
+def print_all_agents():
+    db = sqlite3.connect(DATABASE)
+    cursor = db.cursor()
+    sql = "SELECT * from agents;"
+    cursor.execute(sql)
+    results = cursor.fetchall()
+    #loop through all the results
+    db.close()
+    
+    
+def print_all_agents_by_professionid():
+    '''print all agents in profession id order'''
+    db = sqlite3.connect(DATABASE)
+    cursor = db.cursor()
+    sql = "SELECT * from agents ORDER BY professions;"
+    cursor.execute(sql)
+    results = cursor.fetchall()
+    print results:
+    db.close()
+    
+    
