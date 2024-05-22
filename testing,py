@@ -14,6 +14,8 @@ def print_all_agents():
     cursor.execute(sql)
     results = cursor.fetchall()
     #loop through all the results
+    for val in results:
+        print(val)
     db.close()
     
     
@@ -24,7 +26,104 @@ def print_all_agents_by_professionid():
     sql = "SELECT * from agents ORDER BY professions;"
     cursor.execute(sql)
     results = cursor.fetchall()
-    print results:
+    for val in results:
+        print(val)
     db.close()
     
     
+def print_names_of_agents():
+    db = sqlite3.connect(DATABASE)
+    cursor = db.cursor()
+    sql = "SELECT name FROM Agents;"
+    cursor.execute(sql)
+    results = cursor.fetchall()
+    for val in results:
+        print(val)
+    db.close()
+    
+    
+def print_professions_of_agents():
+    db = sqlite3.connect(DATABASE)
+    cursor = db.cursor()
+    sql = "SELECT Agents.name, Professions.name from Agents join Professions On Agents.professions = Professions.id;"
+    cursor.execute(sql)
+    results = cursor.fetchall()
+    for val in results:
+        print(val)
+    db.close()
+    
+    
+def print_names_and_race_of_agents():
+    db = sqlite3.connect(DATABASE)
+    cursor = db.cursor
+    sql = "SELECT name, race FROM Agents;"
+    cursor.execute(sql)
+    results = cursor.fetchall()
+    for val in results:
+        print(val)
+    db.close()
+    
+    
+def print_name_and_descriptions_of_agents():
+    db = sqlite3.connect(DATABASE)
+    cursor = db.cursor
+    sql = "SELECT name, description FROM Agents;"
+    cursor.execute(sql)
+    results = cursor.fetchall()
+    for val in results:
+        print(val)
+    db.close()
+    
+def print_name_and_pronouns_of_agents():
+    db = sqlite3.connect(DATABASE)
+    cursor = db.cursor
+    sql = "SELECT name, pronouns FROM Agents;"
+    cursor.execute(sql)
+    results = cursor.fetchall()
+    for val in results:
+        print(val)
+    db.close()
+    
+    
+def print_name_and_descriptions_of_abilities():
+    db = sqlite3.connect(DATABASE)
+    cursor = db.cursor
+    sql = "SELECT name, description FROM Abilities;"
+    cursor.execute(sql)
+    results = cursor.fetchall()
+    for val in results:
+        print(val)
+    db.close()
+    
+    
+def print_all_abilities():
+    db = sqlite3.connect(DATABASE)
+    cursor = db.cursor
+    sql = "SELECT * FROM Abilities;"
+    cursor.execute(sql)
+    results = cursor.fetchall()
+    for val in results:
+        print(val)
+    db.close()
+    
+    
+def print_abilities_by_cost():
+    db = sqlite3.connect(DATABASE)
+    cursor = db.cursor
+    sql = "SELECT * FROM Abilities ORDER BY cost;"
+    cursor.execute(sql)
+    results = cursor.fetchall()
+    for val in results:
+        print(val)
+    db.close()
+    
+    
+#main code
+while True:
+    user_input = input(
+"""
+
+
+"""
+        
+    )
