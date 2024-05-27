@@ -55,7 +55,7 @@ def print_professions_of_agents():
     
 def print_names_and_race_of_agents():
     db = sqlite3.connect(DATABASE)
-    cursor = db.cursor
+    cursor = db.cursor()
     sql = "SELECT name, race FROM Agents;"
     cursor.execute(sql)
     results = cursor.fetchall()
@@ -66,7 +66,7 @@ def print_names_and_race_of_agents():
     
 def print_name_and_descriptions_of_agents():
     db = sqlite3.connect(DATABASE)
-    cursor = db.cursor
+    cursor = db.cursor()
     sql = "SELECT name, description FROM Agents;"
     cursor.execute(sql)
     results = cursor.fetchall()
@@ -76,7 +76,7 @@ def print_name_and_descriptions_of_agents():
     
 def print_name_and_pronouns_of_agents():
     db = sqlite3.connect(DATABASE)
-    cursor = db.cursor
+    cursor = db.cursor()
     sql = "SELECT name, pronouns FROM Agents;"
     cursor.execute(sql)
     results = cursor.fetchall()
@@ -87,7 +87,7 @@ def print_name_and_pronouns_of_agents():
     
 def print_name_and_descriptions_of_abilities():
     db = sqlite3.connect(DATABASE)
-    cursor = db.cursor
+    cursor = db.cursor()
     sql = "SELECT name, description FROM Abilities;"
     cursor.execute(sql)
     results = cursor.fetchall()
@@ -98,7 +98,7 @@ def print_name_and_descriptions_of_abilities():
     
 def print_all_abilities():
     db = sqlite3.connect(DATABASE)
-    cursor = db.cursor
+    cursor = db.cursor()
     sql = "SELECT * FROM Abilities;"
     cursor.execute(sql)
     results = cursor.fetchall()
@@ -109,7 +109,7 @@ def print_all_abilities():
     
 def print_abilities_by_cost():
     db = sqlite3.connect(DATABASE)
-    cursor = db.cursor
+    cursor = db.cursor()
     sql = "SELECT * FROM Abilities ORDER BY cost;"
     cursor.execute(sql)
     results = cursor.fetchall()
@@ -122,8 +122,40 @@ def print_abilities_by_cost():
 while True:
     user_input = input(
 """
-
-
-"""
-        
-    )
+What would you like to do.
+1. Print all agents
+2. Print all agents by professions id
+3. Print all agents names
+4. Print all agents names and professions
+5. Print all agents names and races
+6. Print all agents names and descriptions
+7. Print all agents names and pronouns
+8. Print all abilities names and descriptions
+9. Print all abilities
+10. Print all abilities sorted by costs
+11. Exit
+""")
+    if user_input == "1":
+        print_all_agents()
+    elif user_input == "2":
+        print_all_agents_by_professionid()
+    elif user_input == "3":
+        print_names_of_agents()
+    elif user_input == "4":
+        print_professions_of_agents()
+    elif user_input == "5":
+        print_names_and_race_of_agents()
+    elif user_input == "6":
+        print_name_and_descriptions_of_agents()
+    elif user_input == "7":
+        print_name_and_pronouns_of_agents()
+    elif user_input == "8":
+        print_name_and_descriptions_of_abilities()
+    elif user_input == "9":
+        print_all_abilities()
+    elif user_input == "10":
+        print_abilities_by_cost()
+    elif user_input == "11":
+        break
+    else:
+        print("That was not an option\n")
