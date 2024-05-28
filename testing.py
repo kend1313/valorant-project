@@ -52,7 +52,8 @@ def print_professions_of_agents():
     '''print professions of the agents'''
     db = sqlite3.connect(DATABASE)
     cursor = db.cursor()
-    sql = "SELECT Agents.name, Professions.name from Agents join Professions On Agents.professions = Professions.id;"
+    sql = 'SELECT Agents.name, Professions.name from Agents \
+    join Professions On Agents.professions = Professions.id;'
     cursor.execute(sql)
     results = cursor.fetchall()
     for val in results:
@@ -144,12 +145,12 @@ def insert_a_new_agent():
     db = sqlite3.connect(DATABASE)
     cursor = db.cursor()
     sql = "INSERT INTO Agents (name, pronouns) VALUES (?,?);"
-    cursor.execute(sql)
-    results = cursor.fetchall()
-    for val in results:
-        print(val)
+    name = input("What name is the new agent? ")
+    pronouns = input("What pronouns does the new agent have? ")
+    val = (name, pronouns)
+    cursor.execute(sql, val)
+    db.commit()
     db.close()
-
 
 
 #main code
@@ -167,7 +168,8 @@ What would you like to do.
 8. Print all abilities names and descriptions
 9. Print all abilities
 10. Print all abilities sorted by costs
-11. Exit
+11. Insert a new agent
+12. Exit
 """)
     if user_input == "1":
         print_all_agents()
@@ -190,6 +192,8 @@ What would you like to do.
     elif user_input == "10":
         print_abilities_by_cost()
     elif user_input == "11":
+        insert_a_new_agent()
+    elif user_input == "12":
         break
     else:
         print("That was not an option\n")
