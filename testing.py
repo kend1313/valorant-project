@@ -11,21 +11,44 @@ DATABASE = "val.db"
 # 1st function:
 def print_all_agents():
     '''print all agents'''
-    db = sqlite3.connect(DATABASE)
-    # connect with database
-    cursor = db.cursor()
-    # create a cursor object to interact with the database
-    sql = "SELECT * from agents;"
-    # SQL quary to select all records from the ‘Agents' table
-    cursor.execute(sql)
-    # execute the SQL quary stored in the variable (sql)
-    results = cursor.fetchall()
-    #loop through all the results
-    for val in results:
-        print(val)
-    # Iterate through the results and print each value
-    db.close()
-    # close the connection with the database
+    try:
+        db = sqlite3.connect(DATABASE)
+        # connect with database
+        cursor = db.cursor()
+        # create a cursor object to interact with the database
+        sql = "SELECT * from agents;"
+        # SQL quary to select all records from the ‘Agents' table
+        cursor.execute(sql)
+        # execute the SQL quary stored in the variable (sql)
+        results = cursor.fetchall()
+        #loop through all the results
+
+        for agent in results:
+            agent_id, name, description, profession_id, origin_id, \
+            pronouns, race , alses, real_name, relationships = agent
+            print(f"Agent ID: {agent_id}")
+            print(f"Name: {name}")
+            print(f"Description: {description}")
+            print(f"Profession ID: {profession_id}")
+            print(f"Status ID: {origin_id}")
+            print(f"Pronouns: {pronouns}")
+            print(f"Species: {race}")
+            print(f"Alses: {alses}")
+            print(f"Real Name: {real_name}")
+            print(f"Relationships: {relationships}")
+            print("-" * 40)
+
+    except sqlite3.Error as e:
+        print(f"An error occured: {e}")
+    finally:
+        db.close()
+    #     for val in results:
+    #         print(val)
+    # except sqlite3.Error as e:
+    #     print (f"An error occured: {e}")
+    # finally:
+    #     db.close()
+    #     # close the connection with the database
 
 
 # 2nd function:
@@ -53,6 +76,7 @@ def print_names_of_agents():
     results = cursor.fetchall()
     for val in results:
         print(val[0])
+        # print only the name, displayed nicer.
     db.close()
 
 
