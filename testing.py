@@ -52,7 +52,7 @@ def print_names_of_agents():
     cursor.execute(sql)
     results = cursor.fetchall()
     for val in results:
-        print(val)
+        print(val[0])
     db.close()
 
 
