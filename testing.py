@@ -28,26 +28,20 @@ def print_all_agents():
             pronouns, race , alses, real_name, relationships = agent
             print(f"Agent ID: {agent_id}")
             print(f"Name: {name}")
-            print(f"Description: {description}")
+            print(f"Description: {description.strip('\n')}")
             print(f"Profession ID: {profession_id}")
-            print(f"Status ID: {origin_id}")
+            print(f"Origin ID: {origin_id}")
             print(f"Pronouns: {pronouns}")
             print(f"Species: {race}")
-            print(f"Alses: {alses}")
-            print(f"Real Name: {real_name}")
-            print(f"Relationships: {relationships}")
+            print(f"Alses: {alses if alses else 'N/A'}")
+            print(f"Real Name: {real_name if real_name else 'N/A'}")
+            print(f"Relationships: {relationships if relationships else 'N/A'}")
             print("-" * 40)
 
     except sqlite3.Error as e:
         print(f"An error occured: {e}")
     finally:
         db.close()
-    #     for val in results:
-    #         print(val)
-    # except sqlite3.Error as e:
-    #     print (f"An error occured: {e}")
-    # finally:
-    #     db.close()
     #     # close the connection with the database
 
 
