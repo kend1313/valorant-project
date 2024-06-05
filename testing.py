@@ -42,22 +42,40 @@ def print_all_agents():
         print(f"An error occured: {e}")
     finally:
         db.close()
-    #     # close the connection with the database
+    # close the connection with the database
 
 
 # 2nd function:
 def print_all_agents_by_profession_id():
     '''print all agents in profession id order'''
-    db = sqlite3.connect(DATABASE)
-    cursor = db.cursor()
-    sql = "SELECT * from Agents ORDER BY professions;"
-    # SQL quary to select all records from the 'Agents' table, ordered by the 'profession' column
-    cursor.execute(sql)
-    results = cursor.fetchall()
-    for val in results:
-        print(val)
-    db.close()
+    try:
+        db = sqlite3.connect(DATABASE)
+        cursor = db.cursor()
+        sql = "SELECT * from Agents ORDER BY professions;"
+        # SQL quary to select all records from the 'Agents' table, ordered by 'profession'
+        cursor.execute(sql)
+        results = cursor.fetchall()
 
+        for agent in results:
+            agent_id, name, description, profession_id, origin_id, \
+            pronouns, race, alses, real_name, relationships = agent
+            print(f"Agent ID: {agent_id}")
+            print(f"Name: {name}")
+            print(f"Description: {description.strip('\n')}")
+            print(f"Profession ID: {profession_id}")
+            print(f"Origin ID: {origin_id}")
+            print(f"Pronouns: {pronouns}")
+            print(f"Species: {race}")
+            print(f"Alses: {alses if alses else 'N/A'}")
+            print(f"Real Name: {real_name if real_name else 'N/A'}")
+            print(f"Relationships: {relationships if relationships else 'N/A'}")
+            print("-" * 40)
+
+    except sqlite3.Error as e:
+        print(f"An error occured: {e}")
+    finally:
+        db.close()
+    #     # close the connection with the database
 
 # 3rd function:
 def print_names_of_agents():
@@ -77,88 +95,123 @@ def print_names_of_agents():
 # 4th function:
 def print_professions_of_agents():
     '''print professions of the agents'''
-    db = sqlite3.connect(DATABASE)
-    cursor = db.cursor()
-    sql = 'SELECT Agents.name, Professions.name from Agents \
-    join Professions On Agents.professions = Professions.id;'
-    # SQL quary to select the names from the 'Agents' table and the 'Professions' table
-    # Joining the 'Agents' and 'Professions' tables on the 'professions' column in 'Agents'
-    # and the 'id' column in 'Professions'
-    cursor.execute(sql)
-    results = cursor.fetchall()
-    for val in results:
-        print(val)
-    db.close()
+    try:
+        db = sqlite3.connect(DATABASE)
+        cursor = db.cursor()
+        sql = 'SELECT Agents.name, Professions.name from Agents \
+        join Professions On Agents.professions = Professions.id;'
+        # SQL quary to select the names from the 'Agents' table and the 'Professions' table
+        # Joining the 'Agents' and 'Professions' tables on the 'professions' column in 'Agents'
+        # and the 'id' column in 'Professions'
+        cursor.execute(sql)
+        results = cursor.fetchall()
 
+        for agent_name, profession_name in results:
+            print(f"Agent Name: {agent_name}, Profession: {profession_name}")
+
+    except sqlite3.Error as e:
+        print(f"An error occurred: {e}")
+    finally:
+        db.close()
 
 # 5th function:
 def print_names_and_race_of_agents():
     '''print the names and race of the agents'''
-    db = sqlite3.connect(DATABASE)
-    cursor = db.cursor()
-    sql = "SELECT name, race FROM Agents;"
-    # SQL quary to select 'name' and 'race' from the 'Agents' table
-    cursor.execute(sql)
-    results = cursor.fetchall()
-    for val in results:
-        print(val)
-    db.close()
+    try:
+        db = sqlite3.connect(DATABASE)
+        cursor = db.cursor()
+        sql = "SELECT name, race FROM Agents;"
+        # SQL quary to select 'name' and 'race' from the 'Agents' table
+        cursor.execute(sql)
+        results = cursor.fetchall()
+
+        for name, race in results:
+            print(f"Agent Name: {name}, Race: {race}")
+
+    except sqlite3.Error as e:
+        print(f"An error occurred: {e}")
+    finally:
+        db.close()
 
 
 # 6th function:
 def print_name_and_descriptions_of_agents():
     '''print the names and descriptions of the agents'''
-    db = sqlite3.connect(DATABASE)
-    cursor = db.cursor()
-    sql = "SELECT name, description FROM Agents;"
-    # SQL query to select the 'name' and 'description' columns from the 'Agents' table
-    cursor.execute(sql)
-    results = cursor.fetchall()
-    for val in results:
-        print(val)
-    db.close()
+    try:
+        db = sqlite3.connect(DATABASE)
+        cursor = db.cursor()
+        sql = "SELECT name, description FROM Agents;"
+        # SQL query to select the 'name' and 'description' columns from the 'Agents' table
+        cursor.execute(sql)
+        results = cursor.fetchall()
 
+        for name, description in results:
+            print(f"Agent Name: {name}")
+            print(f"Description: {description.strip()}")
+            print("-" * 40)
+
+    except sqlite3.Error as e:
+        print(f"An error occured: {e}")
+    finally:
+        db.close()
 
 # 7th function:
 def print_name_and_pronouns_of_agents():
     '''print the names and pronouns of the agents'''
-    db = sqlite3.connect(DATABASE)
-    cursor = db.cursor()
-    sql = "SELECT name, pronouns FROM Agents;"
-    # SQL quary to select names and pronouns of agents from the Agents table
-    cursor.execute(sql)
-    results = cursor.fetchall()
-    for val in results:
-        print(val)
-    db.close()
+    try:
+        db = sqlite3.connect(DATABASE)
+        cursor = db.cursor()
+        sql = "SELECT name, pronouns FROM Agents;"
+        # SQL quary to select names and pronouns of agents from the Agents table
+        cursor.execute(sql)
+        results = cursor.fetchall()
+
+        for name, pronouns in results:
+            print(f"Agent Name: {name}")
+            print(f"Pronouns: {pronouns}")
+            print("-" * 40)
+
+    except sqlite3.Error as e:
+        print(f"An error occured: {e}")
+    finally:
+        db.close()
 
 
 # 8th function:
 def print_name_and_descriptions_of_abilities():
     '''print the names and descriptions of the abilities'''
-    db = sqlite3.connect(DATABASE)
-    cursor = db.cursor()
-    sql = "SELECT name, description FROM Abilities;"
-    # SQL query to select the 'name' and 'description' columns from the 'Abilities' table
-    cursor.execute(sql)
-    results = cursor.fetchall()
-    for val in results:
-        print(val)
-    db.close()
+    try:
+        db = sqlite3.connect(DATABASE)
+        cursor = db.cursor()
+        sql = "SELECT name, description FROM Abilities;"
+        # SQL query to select the 'name' and 'description' columns from the 'Abilities' table
+        cursor.execute(sql)
+        results = cursor.fetchall()
+
+        for name, description in results:
+            print(f"Ability Name: {name}")
+            print(f"Description: {description.strip()}")
+            print("-" * 40)
+
+    except sqlite3.Error as e:
+        print(f"An error occured: {e}")
+    finally:
+        db.close()
 
 
 # 9th function:
 def print_all_abilities():
     '''print all the abilities'''
-    db = sqlite3.connect(DATABASE)
-    cursor = db.cursor()
-    sql = "SELECT * FROM Abilities;"
-    # SQL query to select all columns from the 'Abilities' table
-    cursor.execute(sql)
-    results = cursor.fetchall()
-    for val in results:
-        print(val)
-    db.close()
+    try:
+        db = sqlite3.connect(DATABASE)
+        cursor = db.cursor()
+        sql = "SELECT * FROM Abilities;"
+        # SQL query to select all columns from the 'Abilities' table
+        cursor.execute(sql)
+        results = cursor.fetchall()
+        
+    for ability in results:
+        ability_id, name, description, maximum_carry, duration, damage, buff, 
 
 
 # 10th function:
