@@ -12,6 +12,7 @@ DATABASE = "val.db"
 def print_all_agents():
     '''print all agents'''
     try:
+        # establish a connection to the database
         db = sqlite3.connect(DATABASE)
         # connect with database
         cursor = db.cursor()
@@ -19,26 +20,34 @@ def print_all_agents():
         sql = "SELECT * from agents;"
         # SQL quary to select all records from the ‘Agents' table
         cursor.execute(sql)
-        # execute the SQL quary stored in the variable (sql)
+        # execute the SQL quary
         results = cursor.fetchall()
-        #loop through all the results
+        #fetch all results from the execute query
 
         for agent in results:
+            # unpack the agent data from the tuple
             agent_id, name, description, profession_id, origin_id, \
             pronouns, race , alses, real_name, relationships = agent
+            # the SQL query copied
             print(f"Agent ID: {agent_id}")
+            # print the agent id, displayed as agent id : {data input}
             print(f"Name: {name}")
             print(f"Description: {description.strip('\n')}")
+            # print the agent description and got rid of any
+            # extra line space between this and the next column in results terminal.
             print(f"Profession ID: {profession_id}")
             print(f"Origin ID: {origin_id}")
             print(f"Pronouns: {pronouns}")
             print(f"Species: {race}")
             print(f"Alses: {alses if alses else 'N/A'}")
+            # print the alses of agents, automatically displays N/A if there isn't any
             print(f"Real Name: {real_name if real_name else 'N/A'}")
             print(f"Relationships: {relationships if relationships else 'N/A'}")
             print("-" * 40)
+            # print a separator line
 
     except sqlite3.Error as e:
+        # print an error message if there's an issue with the database
         print(f"An error occured: {e}")
     finally:
         db.close()
@@ -57,11 +66,15 @@ def print_all_agents_by_profession_id():
         results = cursor.fetchall()
 
         for agent in results:
+            # unpack the agent data from the tuple
             agent_id, name, description, profession_id, origin_id, \
             pronouns, race, alses, real_name, relationships = agent
+            # the SQL query copied
             print(f"Agent ID: {agent_id}")
             print(f"Name: {name}")
             print(f"Description: {description.strip('\n')}")
+            # print the agent description and got rid of any
+            # extra line space between this and the next column in results terminal.
             print(f"Profession ID: {profession_id}")
             print(f"Origin ID: {origin_id}")
             print(f"Pronouns: {pronouns}")
@@ -70,12 +83,13 @@ def print_all_agents_by_profession_id():
             print(f"Real Name: {real_name if real_name else 'N/A'}")
             print(f"Relationships: {relationships if relationships else 'N/A'}")
             print("-" * 40)
+            # print a separator line
 
     except sqlite3.Error as e:
         print(f"An error occured: {e}")
     finally:
         db.close()
-    #     # close the connection with the database
+        # close the connection with the database
 
 # 3rd function:
 def print_names_of_agents():
@@ -88,7 +102,7 @@ def print_names_of_agents():
     results = cursor.fetchall()
     for val in results:
         print(val[0])
-        # print only the name, displayed nicer.
+        # print only the name, no other brackets or quotation mark, displayed nicer.
     db.close()
 
 
@@ -107,7 +121,10 @@ def print_professions_of_agents():
         results = cursor.fetchall()
 
         for agent_name, profession_name in results:
+            # loop through all the results
             print(f"Agent Name: {agent_name}, Profession: {profession_name}")
+            # print the agent name and profession nicely
+            # using format Agent: {data input}, Profession: {data input}
 
     except sqlite3.Error as e:
         print(f"An error occurred: {e}")
@@ -127,7 +144,8 @@ def print_names_and_race_of_agents():
 
         for name, race in results:
             print(f"Agent Name: {name}, Race: {race}")
-
+            # print the agent name and race nicely
+            # using format Agent: {data input}, Race: {data input}
     except sqlite3.Error as e:
         print(f"An error occurred: {e}")
     finally:
@@ -147,7 +165,9 @@ def print_name_and_descriptions_of_agents():
 
         for name, description in results:
             print(f"Agent Name: {name}")
+            # print agent name
             print(f"Description: {description.strip()}")
+            # print descriptiona and get rid of any extra empty line
             print("-" * 40)
 
     except sqlite3.Error as e:
@@ -190,7 +210,9 @@ def print_name_and_descriptions_of_abilities():
 
         for name, description in results:
             print(f"Ability Name: {name}")
-            print(f"Description: {description.strip()}")
+            print(f"Description: {description}")
+            # print description
+            # don't need the strip method as there is no more variables to be prints after this
             print("-" * 40)
 
     except sqlite3.Error as e:
@@ -209,44 +231,133 @@ def print_all_abilities():
         # SQL query to select all columns from the 'Abilities' table
         cursor.execute(sql)
         results = cursor.fetchall()
-        
-    for ability in results:
-        ability_id, name, description, maximum_carry, duration, damage, buff, 
 
+        for ability in results:
+            ability_id, name, description, maximum_carry, duration, damage, buff, \
+            debuff, cost, points_required, windup = ability
+            # SQL query copied
+            print(f"Ability ID: {ability_id}")
+            print(f"Name: {name}")
+            print(f"Description: {description.strip('\n')}")
+            # print descriptiona and get rid of any extra empty line
+            print(f"Maximum carry: {maximum_carry}")
+            print(f"Duration: {duration}")
+            print(f"Damage {damage}")
+            print(f"Buff: {buff}")
+            print(f"Debuff: {debuff}")
+            print(f"Cost: {cost}")
+            print(f"Points_required: {points_required}")
+            print(f"Windup: {windup}")
+            # print all the variables in the table serpartely
+            # displayed for the user to identify easy
+            print("-" * 40)
+
+    except sqlite3.Error as e:
+        print(f"An error occurred: {e}")
+    finally:
+        db.close()
 
 # 10th function:
 def print_abilities_by_cost():
     '''print all the abiliites alng with the cost'''
-    db = sqlite3.connect(DATABASE)
-    cursor = db.cursor()
-    sql = "SELECT * FROM Abilities ORDER BY cost;"
-    # SQL query to select all columns from the 'Abilities' table, ordered by the 'cost' column
-    cursor.execute(sql)
-    results = cursor.fetchall()
-    for val in results:
-        print(val)
-    db.close()
+    try:
+        db = sqlite3.connect(DATABASE)
+        cursor = db.cursor()
+        sql = "SELECT * FROM Abilities ORDER BY cost;"
+        # SQL query to select all columns from the 'Abilities' table, ordered by the 'cost' column
+        cursor.execute(sql)
+        results = cursor.fetchall()
 
+        for ability in results:
+            ability_id, name, description, maximum_carry, duration, damage, buff, \
+            debuff, cost, points_required, windup = ability
+            print(f"Ability ID: {ability_id}")
+            print(f"Name: {name}")
+            print(f"Description: {description.strip('\n')}")
+            print(f"Maximum carry: {maximum_carry}")
+            print(f"Duration: {duration}")
+            print(f"Damage {damage}")
+            print(f"Buff: {buff}")
+            print(f"Debuff: {debuff}")
+            print(f"Cost: {cost}")
+            print(f"Points_required: {points_required}")
+            print(f"Windup: {windup}")
+            print("-" * 40)
+
+    except sqlite3.Error as e:
+        print(f"An error occurred: {e}")
+    finally:
+        db.close()
 
 # 11th function:
+def display_options(options):
+    '''Display options for the user to select from'''
+    for idx, option in enumerate(options, start=1):
+        print(f"{idx}. {option}")
+    while True:
+        choice = input("Please select an option by number: ")
+        if choice.isdigit() and 1 <= int(choice) <= len(options):
+            return options[int(choice) - 1]
+        else:
+            print("Invalid choice. Please select a valid number.")
+
 def insert_a_new_agent():
-    '''inser a new agent'''
-    db = sqlite3.connect(DATABASE)
-    cursor = db.cursor()
-    sql = "INSERT INTO Agents (name, pronouns) \
-    VALUES (?,?);"
-    # SQL query to insert values into the 'Agents' table for the 'name' and 'pronouns' columns
-    name = input("What name is the new agent? ")
-    # asking the user to input a agent name
-    pronouns = input("What pronouns does the new agent have? ")
-    # asking the user to input the new agent's pronouns
-    val = (name, pronouns)
-    cursor.execute(sql, val)
-    # Execute the SQL query with the provided values for name and pronouns
-    db.commit()
-    # To Commit and save the changes into the database
-    db.close()
-    # Close the connection with the database
+    '''Insert a new agent'''
+    try:
+        db = sqlite3.connect(DATABASE)
+        cursor = db.cursor()
+        sql = "INSERT INTO Agents (name, description, professions, origin, \
+        pronouns, race, alses, real_name, relationships) \
+        VALUES (?,?,?,?,?,?,?,?,?);"
+
+        while True:
+            name = input("What is the new agent's name? ")
+            if name.strip():
+                break
+            else:
+                print("Invalid name. Please enter a valid name.")
+
+        description = input("What is the new agent's description? ")
+
+        print("Select profession ID:")
+        profession_options = ['controller', 'sentinel', 'initiator', 'duelist']
+        profession_choice = display_options(profession_options)
+        professions = profession_options.index(profession_choice) + 1
+
+        print("Select origin ID:")
+        origin_options = ['earth', 'unknown', 'alternative timeline earth']
+        origin_choice = display_options(origin_options)
+        origin = origin_options.index(origin_choice) + 1
+
+        print("Select pronouns:")
+        pronouns_options = ['He/Him', 'She/Her', 'They/Them']
+        pronouns = display_options(pronouns_options)
+
+        race = input("What is the new agent's race? ")
+
+        alses = input("What are the new agent's alses? (Enter 'X' if none) ")
+        if alses.upper() == 'X':
+            alses = None
+
+        real_name = input("What is the new agent's real name? (Enter 'X' if none) ")
+        if real_name.upper() == 'X':
+            real_name = None
+
+        relationships = input("What are the new agent's relationships? (Enter 'X' if none) ")
+        if relationships.upper() == 'X':
+            relationships = None
+
+        val = (name, description, professions, origin, pronouns, \
+               race, alses, real_name, relationships)
+        cursor.execute(sql, val)
+
+        db.commit()
+        print("New agent inserted successfully.")
+
+    except sqlite3.Error as e:
+        print(f"An error occurred: {e}")
+    finally:
+        db.close()
 
 
 #main code
