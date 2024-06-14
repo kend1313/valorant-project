@@ -113,7 +113,7 @@ def print_professions_of_agents():
         db = sqlite3.connect(DATABASE)
         cursor = db.cursor()
         sql = 'SELECT Agents.name, Professions.name from Agents \
-        join Professions On Agents.professions = Professions.id;'
+        Join Professions On Agents.professions = Professions.id;'
         # SQL quary to select the names from the 'Agents' table and the 'Professions' table
         # Joining the 'Agents' and 'Professions' tables on the 'professions' column in 'Agents'
         # and the 'id' column in 'Professions'
@@ -274,6 +274,7 @@ def print_abilities_by_cost():
             print(f"Ability ID: {ability_id}")
             print(f"Name: {name}")
             print(f"Description: {description.strip('\n')}")
+            # get rid of any extra line space between the next line.
             print(f"Maximum carry: {maximum_carry}")
             print(f"Duration: {duration}")
             print(f"Damage {damage}")
@@ -283,6 +284,7 @@ def print_abilities_by_cost():
             print(f"Points_required: {points_required}")
             print(f"Windup: {windup}")
             print("-" * 40)
+            # print a serparator line for better readibility.
 
     except sqlite3.Error as e:
         print(f"An error occurred: {e}")
@@ -293,68 +295,96 @@ def print_abilities_by_cost():
 def display_options(options):
     '''Display options for the user to select from'''
     for idx, option in enumerate(options, start=1):
+        # Iterate over the list of options with an index starting from 1
         print(f"{idx}. {option}")
     while True:
         choice = input("Please select an option by number: ")
+        # Prompt the user to select an option by number
         if choice.isdigit() and 1 <= int(choice) <= len(options):
+            # check if the input is a digit and within the valid range
             return options[int(choice) - 1]
+        # return the selected option
         else:
             print("Invalid choice. Please select a valid number.")
+            # print an error message for invalid choices
 
 def insert_a_new_agent():
     '''Insert a new agent'''
     try:
         db = sqlite3.connect(DATABASE)
+        # connect to the SQLite database
         cursor = db.cursor()
+        # SQL query to insert values into the ‘Agents' table
         sql = "INSERT INTO Agents (name, description, professions, origin, \
         pronouns, race, alses, real_name, relationships) \
         VALUES (?,?,?,?,?,?,?,?,?);"
 
         while True:
+            # Loop to ensure valide agent name input
             name = input("What is the new agent's name? ")
             if name.strip():
+                # check if the name is not just whitespace
                 break
             else:
                 print("Invalid name. Please enter a valid name.")
+                # print an error message for invalde name
 
         description = input("What is the new agent's description? ")
+        # Prompt the user to enter the agent's description
 
         print("Select profession ID:")
+        # Display the profession options for the user to choose from
         profession_options = ['controller', 'sentinel', 'initiator', 'duelist']
         profession_choice = display_options(profession_options)
         professions = profession_options.index(profession_choice) + 1
+        # Get the index of the selected profession (1-based index)
 
         print("Select origin ID:")
+        # Display the origin options for the user to choose from
         origin_options = ['earth', 'unknown', 'alternative timeline earth']
         origin_choice = display_options(origin_options)
         origin = origin_options.index(origin_choice) + 1
+        # Get the index of the selected origin (1-based index)
 
         print("Select pronouns:")
+        # Display the pronouns options for the user to choose from
         pronouns_options = ['He/Him', 'She/Her', 'They/Them']
         pronouns = display_options(pronouns_options)
 
         race = input("What is the new agent's race? ")
+        # Prompt the user to enter the agent's race
 
         alses = input("What are the new agent's alses? (Enter 'X' if none) ")
+        # Prompt the user to enter the agent's alses, with a provision for no alses.
         if alses.upper() == 'X':
+            # Set alses to None if the user entered 'X'
             alses = None
 
         real_name = input("What is the new agent's real name? (Enter 'X' if none) ")
+        # Prompt the user to enter the agent's real name, with a provision for no real name.
         if real_name.upper() == 'X':
+            # Set real name to None if the user entered 'X'
             real_name = None
 
         relationships = input("What are the new agent's relationships? (Enter 'X' if none) ")
+        # Prompt the user to enter the agent's relationships, with a provision for no relationships.
         if relationships.upper() == 'X':
+            # Set relationship to None if the user entered 'X'
             relationships = None
 
         val = (name, description, professions, origin, pronouns, \
+            # Tuple containing all the values to be inserted into the database
                race, alses, real_name, relationships)
         cursor.execute(sql, val)
+        # Execute the SQL query with the provided values
+
 
         db.commit()
+        # Commit the transaction to save the changes into the database.
         print("New agent inserted successfully.")
 
     except sqlite3.Error as e:
+        # Print an error message if any database error occurs
         print(f"An error occurred: {e}")
     finally:
         db.close()
@@ -406,3 +436,6 @@ What would you like to do.
         break
     else:
         print("That was not an option\n")
+# Print a message to users indicating their input wasn't a valid option (if not in the range 1-12)
+# This is used for input validation to handle cases where the uer enteres something
+# Defined options are 1 - 12.
