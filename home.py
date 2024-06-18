@@ -1,9 +1,10 @@
 #docstring - Ken Dong - Agents database application
 #imports
 
+import sqlite3
+
 from flask import Flask, render_template # type: ignore
 
-import sqlite3
 
 #contants and variables
 
