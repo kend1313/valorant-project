@@ -22,7 +22,7 @@ app = Flask(__name__)
 def home():
     db = sqlite3.connect('val.db')
     cursor = db.cursor()
-    sql = "SELECT Agents.name, Professions.name, Origin.name, real_name from Agents \
+    sql = "SELECT Agents.name, Professions.name, Origin.name, real_name, Agents.image from Agents \
     join Professions \
     On Agents.professions = Professions.id join Origin on Agents.origin = origin.id;"
     cursor.execute(sql)

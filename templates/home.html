@@ -11,10 +11,10 @@
         <th>profession</th>
         <th>origins</th>
         <th>real name</th>
-    </tr>
+    </tr> 
     {% for agent in agents %}
     <tr>
-        <td>{{agent[0]}}</td>
+        <td><img src="static/images/{{agent[4]}}" class="agent-image">{{agent[0]}}</td>
         <td>{{agent[1]}}</td>
         <td>{{agent[2]}}</td>
         <td>{{agent[3]}}</td>
