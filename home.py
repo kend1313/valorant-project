@@ -23,9 +23,10 @@ def home():
     db = sqlite3.connect('val.db')
     cursor = db.cursor()
     sql = "SELECT Agents.name, Professions.name, Origin.name, real_name, Agents.image, \
-    Professions.image from Agents \
+    Professions.image, Origin.image from Agents \
     join Professions \
-    On Agents.professions = Professions.id join Origin on Agents.origin = origin.id;"
+    On Agents.professions = Professions.id \
+    join Origin on Agents.origin = origin.id;"
     cursor.execute(sql)
     results = cursor.fetchall()
     # print them nicely.
