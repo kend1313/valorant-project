@@ -31,7 +31,7 @@ def home():
     results = cursor.fetchall()
     # print them nicely.
     for val in results:
-        print(val)
+        print(val[0].encode("utf-8"))
 
     # close the db.
     db.close()
