@@ -5,19 +5,9 @@ import sqlite3
 
 from flask import Flask, render_template # type: ignore
 
-
-#contants and variables
-
-
-
-#functions
-
-
-
-#main code
-
 app = Flask(__name__)
 
+# Home Route
 @app.route("/")
 def home():
     db = sqlite3.connect('val.db')
