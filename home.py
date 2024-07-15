@@ -11,8 +11,8 @@ app = Flask(__name__)
 @app.route("/")
 
 
-@app.route("/agents")
-def agents():
+@app.route("/agentstable")
+def agentstable():
     db = sqlite3.connect('val.db')
     cursor = db.cursor()
     sql = "SELECT Agents.name, Professions.name, Origin.name, real_name, Agents.image, \
@@ -27,7 +27,7 @@ def agents():
         print(val[0].encode("utf-8"))
     db.close()
     # close the database.
-    return render_template("agents.html",agents=results)
+    return render_template("agentstable.html",agents=results)
 # display the agents page, connect with agents.html
 
 
