@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang "en">
+<html lang = "en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" cotent="width=device-width, initial-scale=1.0" />
@@ -9,7 +9,19 @@
         <title> Document </title>
     </head>
     <body>
-       {% block body %}
-       {% endblock %}
+        <header>
+            {% include "header.html"%}
+        </header>
+
+        <nav>
+            {% include "nav.html" %}
+        </nav>
+                
+            {% block body %}
+            {% endblock %}
+
+            <footer>
+            {% include "footer.html" %}
+            </footer>       
     </body>
 </html>
