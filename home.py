@@ -9,7 +9,8 @@ app = Flask(__name__)
 
 # Home Route
 @app.route("/")
-
+def home():
+    return render_template("home.html")
 
 @app.route("/agentstable")
 def agentstable():
@@ -33,3 +34,4 @@ def agentstable():
 
 if __name__=='__main__':
     app.run(debug=True, port=4000)
+    app.run(debug=True)
