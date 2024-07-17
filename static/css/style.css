@@ -12,7 +12,7 @@
     /* rounds bottom right corner */
     border-bottom-left-radius: 30px;
     /* rounds bottom left corner */
-    /* Website heading */
+                                            /* Website heading */
 }
 
 .nav-container{
@@ -22,20 +22,62 @@
     font-weight: bold;
     text-align: center;
     margin-right: 30px;
-    background-color: aqua;
     width: auto;
 }
 
+.nav-home{
+    font-size: 25px;
+    color: black;
+    margin-left: 50px;
+    text-decoration: none;
+}
+.nav-home:hover{
+    color: brown;
+    /* to change the font colour into the hover color when your mouse is on the bottom. */
+}
+
+.nav-purpose{
+    font-size: 25px;
+    color: black;
+    margin-left: 50px;
+    text-decoration: none;
+}
+.nav-purpose:hover{
+    color: brown;
+}
+
+.nav-agentstable{
+    font-size: 25px;
+    color: black;
+    margin-left: 50px;
+    text-decoration: none;
+}
+.nav-agentstable:hover{
+    color: brown;
+}
+
+.nav-professions{
+    font-size: 25px;
+    color: black;
+    margin-left: 50px;
+    text-decoration: none;
+}
+.nav-professions:hover{
+    color: brown;
+}
+                                            /* nav css */
+
+
 .agentstable-h1{
     color: white;
-    background-color:black
+    background-color:blak
 }
 
 
 h1{
     padding: 25px;
     width: auto;
-    background-color: red;
+    background-color:rgb(180, 45, 45);
     text-align: center;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
@@ -45,13 +87,6 @@ h1{
     color: white;
 
 }
-
-
-
-
-
-
-
 
 .agent-image{
     width: 50px;
