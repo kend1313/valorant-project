@@ -1,9 +1,50 @@
-.home-header{
-    color: black;
+                                            /*  layout css */
+.header1{
+    text-decoration: none;
+    /* no default underlines */
+    color: white;
+    font-size: 65px;
+    font-weight: bolder;
+    /* bold the text */
+    text-align: center;
+    /* set to the centre */
+    border-bottom-right-radius: 30px;
+    /* rounds bottom right corner */
+    border-bottom-left-radius: 30px;
+    /* rounds bottom left corner */
+    /* Website heading */
+}
+
+.nav-container{
+    font-size: 25px;
+    margin-bottom: 25px;
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-right: 30px;
+    background-color: aqua;
+    width: auto;
+}
+
+.agentstable-h1{
+    color: white;
+    background-color:black
 }
 
 
+h1{
+    padding: 25px;
+    width: auto;
+    background-color: red;
+    text-align: center;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
 
+.home-header{
+    color: white;
+
+}
 
 
 
