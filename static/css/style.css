@@ -8,7 +8,7 @@ h1{
 }
 
 .footer-container{
-    border-top: 3px solid;
+    border-top: 5px solid;
 }
 
 .footer-copyright{
@@ -56,7 +56,7 @@ h3{
     text-align: center;
     margin-right: 30px;
     width: auto;
-    border-bottom: 3px solid;
+    border-bottom: 5px solid;
     /* adding a serparator line under the nav bar */
 }
 
