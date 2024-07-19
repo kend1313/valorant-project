@@ -1,0 +1,22 @@
+{% extends "layout.html"%}
+{% block body %}
+
+<h1 class="professions-h1">
+    The Professions Table
+</h1>
+<table class="w3-table-all">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Image</th>
+    </tr> 
+    {% for profession in professions %}
+    <tr>
+        <td>{{ profession[0] }}</td>
+        <td>{{ profession[1] }}</td>
+        <td><img src="static/images/{{ profession[2] }}" class="profession-image"></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

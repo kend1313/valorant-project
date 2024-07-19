@@ -1,4 +1,6 @@
 h1{
+    margin: 0;
+    /* ensure there is no margin */
     padding: 25px;
     width: auto;
     background-color:rgb(180, 45, 45);
@@ -6,30 +8,6 @@ h1{
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
 }
-
-.footer-container{
-    border-top: 5px solid;
-}
-
-.footer-copyright{
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    font-size: 25px;
-}
-
-h3{
-    padding: 25px;
-    width: auto;
-    background-color: rgb(79, 76, 76);
-    border-radius: 0px;
-    /*  removes rounded corners, making them square */
-    text-align: center;
-    bottom: 0;
-    /* to position to the bottom of the containing block */
-}
-                                            /* footer */
-                                            /*  layout css */
 
 .header1{
     text-decoration: none;
@@ -45,7 +23,7 @@ h3{
     /* rounds bottom right corner */
     border-bottom-left-radius: 30px;
     /* rounds bottom left corner */
-                                            /* Website heading */
+                                            /* header */
 }
 
 .nav-container{
@@ -102,12 +80,35 @@ h3{
 }
                                             /* nav css */
 
-
 body{
     font-family:"Open Sans","Segoe UI",Tahoma,sans-serif;
     background-color:rgb(235, 242, 137);
     color:rgb(161, 152, 169); 
 }
+                                            /* body css */
+
+.footer-container{
+    border-top: 5px solid;
+}
+
+.footer-copyright{
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 25px;
+}
+
+h3{
+    padding: 25px;
+    width: auto;
+    background-color: rgb(79, 76, 76);
+    border-radius: 0px;
+    /*  removes rounded corners, making them square */
+    text-align: center;
+    bottom: 0;
+    /* to position to the bottom of the containing block */
+}
+                                            /* footer */
 
 .purpose-discription{
     font-size: 30px;
@@ -127,6 +128,7 @@ body{
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
 }
+                                            /* purpose route css */
 
 .agent-image{
     width: 50px;
@@ -144,3 +146,6 @@ body{
     height: 50px;
 }
                                             /* agentstable css */
+
+
+

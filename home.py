@@ -17,7 +17,6 @@ def home():
 def purpose():
     return render_template("purpose.html")
 
-
 # Agents Table Route
 @app.route("/agentstable")
 def agentstable():
@@ -38,6 +37,19 @@ def agentstable():
     return render_template("agentstable.html",agents=results)
 # display the agents page, connect with agents.html
 
+# Professionstable Route
+@app.route("/professions")
+def professions():
+    db = sqlite3.connect('val.db')
+    cursor = db.cursor()
+    sql = "SELECT name, description, image FROM Professions;"
+    cursor.execute(sql)
+    results = cursor.fetchall()
+    #print them nicely
+    for val in results:
+        print(val[0].encode("utf-8"))
+    db.close()
+    return render_template("professions.html",professions=results)
 
 if __name__=='__main__':
     app.run(debug=True, port=4000)
