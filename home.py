@@ -12,6 +12,13 @@ app = Flask(__name__)
 def home():
     return render_template("home.html")
 
+# Purpose Route
+@app.route("/purpose")
+def purpose():
+    return render_template("purpose.html")
+
+
+# Agents Table Route
 @app.route("/agentstable")
 def agentstable():
     db = sqlite3.connect('val.db')

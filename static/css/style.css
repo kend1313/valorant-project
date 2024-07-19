@@ -1,8 +1,36 @@
+h1{
+    padding: 25px;
+    width: auto;
+    background-color:rgb(180, 45, 45);
+    text-align: center;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.footer-copyright{
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 25px;
+}
+
+h3{
+    padding: 25px;
+    width: auto;
+    background-color: gray;
+    border-radius: 0px;
+    /*  removes rounded corners, making them square */
+    text-align: center;
+    bottom: 0;
+    /* to position to the bottom of the containing block */
+}
                                             /*  layout css */
+
 .header1{
     text-decoration: none;
     /* no default underlines */
     color: white;
+    background-color:rgb(180, 45, 45) ;
     font-size: 65px;
     font-weight: bolder;
     /* bold the text */
@@ -23,6 +51,8 @@
     text-align: center;
     margin-right: 30px;
     width: auto;
+    border-bottom: 3px solid;
+    /* adding a serparator line under the nav bar */
 }
 
 .nav-home{
@@ -68,24 +98,20 @@
                                             /* nav css */
 
 
+body{
+    font-family:"Open Sans","Segoe UI",Tahoma,sans-serif;
+    background-color:rgb(235, 242, 137);
+    color:rgb(161, 152, 169); 
+}
+
+
+                                            
 .agentstable-h1{
     color: white;
-    background-color:blak
-}
-
-
-h1{
-    padding: 25px;
-    width: auto;
-    background-color:rgb(180, 45, 45);
-    text-align: center;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-}
-
-.home-header{
-    color: white;
-
+    background-color:rgb(79, 76, 76);
+    font-weight: bold;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
 }
 
 .agent-image{
@@ -102,4 +128,6 @@ h1{
 .origin-image{
     width: 100px;
     height: 50px;
+ 
 }
+                                            /* agentstable css */
