@@ -51,6 +51,16 @@ def professions():
     db.close()
     return render_template("professions.html",professions=results)
 
+# Agents Detail Route
+@app.route("/agent/<int:id>")
+def all_agents(id):
+    db = sqlite3.connect('val.db')
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM Agents WHERE id=?", (id,))
+    results = cursor.fetchone()
+    db.close()
+    return render_template('all_agents.html', agent=results)
+
 if __name__=='__main__':
     app.run(debug=True, port=4000)
     app.run(debug=True)
