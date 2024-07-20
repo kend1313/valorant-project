@@ -64,9 +64,16 @@ def all_agents(id):
     JOIN Origin ON Agents.origin = Origin.id \
     WHERE Agents.id = ?;"
     cursor.execute(sql, (id,))
-    results = cursor.fetchone()
+    agent = cursor.fetchone()
+    
+    abilities_sql = "SELECT * FROM agent_ability WHERE agent_id =?;"
+    cursor.execute(abilities_sql,(id,))
+    abilities = cursor.fetchall()
+    
     db.close()
-    return render_template('all_agents.html', agent=results)
+    return render_template('all_agents.html', agent=agent,abilities=abilities)
+
+
 
 if __name__=='__main__':
     app.run(debug=True, port=4000)

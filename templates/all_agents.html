@@ -42,6 +42,53 @@
         <!-- <strong> is basiccally just a bold -->
     </div>
 
+    <div class="agent-abilities">
+        <h2 class="abilities-header"> Abilities </h2>
+        {% for ability in abilities %}
+        <div class="ability-container">
+                <p class="ability-name">
+                    <strong>Name:</strong> {{ ability[1] }}
+                </p>
+
+                <p class="ability-description">
+                    <strong>Description:</strong> {{ ability[2] }}
+                </p>
+
+                <p class="ability-maximum-carry">
+                    <strong>Maximum carry:</strong> {{ ability[3] }}
+                </p>   
+                
+                <p class="ability-duration">
+                    <strong>Duration:</strong>
+                </p>
+
+                <p class="ability-damage">
+                    <strong>Damage:</strong>
+                </p>
+
+                <p class="ability-buff">
+                    <strong>Buff:</strong>
+                </p>
+
+                <p class="ability-debuff">
+                    <strong>Debuff:</strong>
+                </p>
+
+                <p class="ability-cost">
+                    <strong>Cost:</strong>
+                </p>
+
+                <p class="ability-points-required">
+                    <strong>Points required:</strong>
+                </p>
+
+                <p class="windup">
+                    <strong>Windup:</strong>
+                </p>
+        </div>
+        {% endfor %}
+    </div>
+
     <div class="back-button-container">
         <a href="/" class="back-button">Back to Home</a>
         <!-- link to go back to the home page -->
