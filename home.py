@@ -56,7 +56,14 @@ def professions():
 def all_agents(id):
     db = sqlite3.connect('val.db')
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM Agents WHERE id=?", (id,))
+    sql = "SELECT Agents.name, Agents.description, Professions.name, Origin.name, \
+    Agents.pronouns, Agents.race, Agents.alses, Agents.real_name, \
+    Agents.relationships, Agents.image \
+    FROM Agents \
+    JOIN Professions ON Agents.professions = Professions.id \
+    JOIN Origin ON Agents.origin = Origin.id \
+    WHERE Agents.id = ?;"
+    cursor.execute(sql, (id,))
     results = cursor.fetchone()
     db.close()
     return render_template('all_agents.html', agent=results)

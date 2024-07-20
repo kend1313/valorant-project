@@ -1,13 +1,51 @@
 {%extends "layout.html"%}
 {%block body %}
 
+<div class="agent-detail">
+    <h1 class="agent-name">
+        {{ agent[0] }}
+    </h1>
+    <!-- display the agent's name from the db -->
+    <img src="/static/images/{{ agent[9] }}" alt="{{ agent[1] }}" class="agent-image2">
+    <div class="agent-info">
+        <p class="id-description">
+            <strong>Description:</strong> {{ agent[1] }}
+        </p>
 
+        <p class="id-profession">
+            <strong>Profession:</strong> {{ agent[2] }}
+        </p>
 
+        <p class="id-origin">
+            <strong>Origin:</strong> {{ agent[3] }}
+        </p>
 
+        <p class="id-pronouns">
+            <strong>Pronouns:</strong> {{ agent[4] }}
+        </p>
 
+        <p class="id-race">
+            <strong>Race:</strong> {{ agent[5] }}
+        </p>
 
+        <p class="id-aliases">
+            <strong>Aliases:</strong> {{ agent[6] }}
+        </p>
 
+        <p class="id-real_name">
+            <strong>Real Name:</strong> {{ agent[7] }}
+        </p>
 
+        <p class="id-relationship">
+            <strong>Relationships:</strong> {{ agent[8] }}
+        </p>
+        <!-- <strong> is basiccally just a bold -->
+    </div>
 
+    <div class="back-button-container">
+        <a href="/" class="back-button">Back to Home</a>
+        <!-- link to go back to the home page -->
+    </div>
+</div>
 
 {% endblock %}
