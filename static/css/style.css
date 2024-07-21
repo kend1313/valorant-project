@@ -316,12 +316,18 @@ h3{
 }
 
 .back-button{
-    font-size: 35px;
+    font-size: 40px;
     color: black;
     margin-bottom: 20px;
     font-weight: bold;
     text-decoration: none;
     margin-right: 40px;
+}
+
+.back-button-container{
+    display:flex;
+    justify-content: flex-end;
+    width: 100%;
 }
 
 .abilities-header {
@@ -354,11 +360,7 @@ h3{
     /* centre the container */
 }
 
-.back-button-container{
-    display:flex;
-    justify-content: flex-end;
-    width: 100%;
-}
+
 
 .purpose-discription{
     font-size: 30px;
