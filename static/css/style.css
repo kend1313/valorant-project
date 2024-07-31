@@ -26,6 +26,14 @@ h1{
                                             /* header */
 }
 
+.home-header{
+    text-align: center;
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
 .nav-container{
     font-size: 25px;
     margin-bottom: 25px;
@@ -108,7 +116,7 @@ h3{
     bottom: 0;
     /* to position to the bottom of the containing block */
 }
-                                            /* footer */
+                                            /* footer css */
 
 *,
 *::before,
@@ -248,12 +256,9 @@ h3{
     /* padding to make it look better */
     background-color: #b03030; 
     color: white;
+    font-weight: bold;
+}
 
-}
-.agent-image1{
-    width: 60px;
-    height: 60px;
-}
 
 .agent-image2{
     width: 300px;
@@ -359,7 +364,7 @@ h3{
     margin: 20px auto;
     /* centre the container */
 }
-
+                                            /* All agents route */
 
 
 .purpose-discription{
@@ -372,7 +377,8 @@ h3{
     margin-top: 100px;
     margin-bottom: 100px;
 }
-
+                                            /* purpose route css */
+                                            
 .agentstable-h1{
     color: white;
     background-color:rgb(79, 76, 76);
@@ -380,9 +386,11 @@ h3{
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
 }
-                                            /* purpose route css */
 
-
+.agent-image1{
+    width: 60px;
+    height: 60px;
+}
 
 .profession-image{
     width: 50px;
@@ -394,13 +402,31 @@ h3{
     width: 100px;
     height: 50px;
 }
+
+.agent-image1, .profession-image, .origin-image {
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.table-container{
+    padding: 20px;
+    max-width: 90%;
+    margin: 0 auto;
+    color: black;
+}
+
+.w3-table-all th, .w3-table-all td{
+    font-size: 25px;
+}
                                             /* agentstable css */
 
-.home-header{
-    text-align: center;
-    color: black;
-    font-size: 30px;
+.professions-h1{
+    color: white;
+    background-color:rgb(79, 76, 76);
     font-weight: bold;
-    margin-bottom: 20px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
 }
+
+
 
