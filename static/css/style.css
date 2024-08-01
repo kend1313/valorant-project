@@ -77,13 +77,13 @@ h1{
     color: brown;
 }
 
-.nav-professions{
+.nav-professionstable{
     font-size: 25px;
     color: black;
     margin-left: 50px;
     text-decoration: none;
 }
-.nav-professions:hover{
+.nav-professionstable:hover{
     color: brown;
 }
                                             /* nav css */
@@ -428,13 +428,13 @@ h3{
 }
                                             /* agentstable css */
 
-.professions-h1{
+.professionstable-h1{
     color: white;
     background-color:rgb(79, 76, 76);
     font-weight: bold;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
 }
-
+/* professionstable css */
 
 

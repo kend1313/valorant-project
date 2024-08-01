@@ -39,7 +39,7 @@ def agentstable():
 
 # Professionstable Route
 @app.route("/professions")
-def professions():
+def professionstable():
     db = sqlite3.connect('val.db')
     cursor = db.cursor()
     sql = "SELECT name, description, image FROM Professions;"
@@ -49,7 +49,7 @@ def professions():
     for val in results:
         print(val[0].encode("utf-8"))
     db.close()
-    return render_template("professions.html",professions=results)
+    return render_template("professionstable.html",professions=results)
 
 # Agents Detail Route
 @app.route("/agent/<int:id>")
