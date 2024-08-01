@@ -22,7 +22,7 @@ def purpose():
 def agentstable():
     db = sqlite3.connect('val.db')
     cursor = db.cursor()
-    sql = "SELECT Agents.name, Professions.name, Origin.name, real_name, Agents.image, \
+    sql = "SELECT Agents.id, Agents.name, Professions.name, Origin.name, real_name, Agents.image, \
     Professions.image, Origin.image from Agents \
     join Professions \
     On Agents.professions = Professions.id \
@@ -31,7 +31,7 @@ def agentstable():
     results = cursor.fetchall()
     # print them nicely.
     for val in results:
-        print(val[0].encode("utf-8"))
+        print(val[1].encode("utf-8"))
     db.close()
     # close the database.
     return render_template("agentstable.html",agents=results)

@@ -7,7 +7,6 @@
 <div class="table-container">
     <table class="w3-table-all">
         <tr >
-        
             <th>name</th>
             <th>profession</th>
             <th>origins</th>
@@ -15,10 +14,10 @@
         </tr> 
         {% for agent in agents %}
         <tr>
-            <td><img src="static/images/{{agent[4]}}" class="agent-image1">{{agent[0]}}</td>
-            <td><img src="static/images/{{agent[5]}}" class="profession-image">{{agent[1]}}</td>
-            <td><img src="static/images/{{agent[6]}}" class="origin-image">{{agent[2]}}</td>
-            <td>{{agent[3]}}</td>
+            <td><a href="/agent/{{agent[0]}}"><img src="static/images/{{agent[5]}}" class="agent-image1">{{agent[1]}}</a></td>
+            <td><img src="static/images/{{agent[6]}}" class="profession-image">{{agent[2]}}</td>
+            <td><img src="static/images/{{agent[7]}}" class="origin-image">{{agent[3]}}</td>
+            <td>{{agent[4]}}</td>
         </tr>
         {% endfor %}
     </table>
