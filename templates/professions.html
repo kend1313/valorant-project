@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h2 class="professions-h1">
+    All Professions
+</h2>
+
+<div>
+    {% for profession in professions %}
+    <div class="card">
+        <img src="static/images/{{ profession[2] }}" alt="Image">
+        <div class="card-content">
+            <h2 class="card-h2">
+                {{ profession[0] }}
+            </h2>
+            <p>{{ profession[1] }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

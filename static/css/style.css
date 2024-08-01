@@ -86,6 +86,17 @@ h1{
 .nav-professionstable:hover{
     color: brown;
 }
+
+.nav-professions {
+    font-size: 25px;
+    color: black;
+    margin-left: 50px;
+    text-decoration: none;
+}
+
+.nav-professions:hover {
+    color: brown;
+}
                                             /* nav css */
 
 body{
@@ -437,4 +448,18 @@ h3{
 }
 /* professionstable css */
 
+.professions-h1{
+    font-size: 36px;
+    color: white;
+    background-color:rgb(79, 76, 76);
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    border-radius: 30px;
+    
+}
 
+.container{
+    
+}

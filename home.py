@@ -38,7 +38,7 @@ def agentstable():
 # display the agents page, connect with agents.html
 
 # Professionstable Route
-@app.route("/professions")
+@app.route("/professionstable")
 def professionstable():
     db = sqlite3.connect('val.db')
     cursor = db.cursor()
@@ -50,6 +50,21 @@ def professionstable():
         print(val[0].encode("utf-8"))
     db.close()
     return render_template("professionstable.html",professions=results)
+
+# Professions Route
+@app.route("/professions")
+def professions():
+    db = sqlite3.connect('val.db')
+    cursor = db.cursor()
+    sql = "SELECT name, description, image FROM Professions;"
+    cursor.execute(sql)
+    results = cursor.fetchall()
+    db.close()
+    return render_template("professions.html",professions=results)
+
+
+
+
 
 # Agents Detail Route
 @app.route("/agent/<int:id>")
