@@ -62,10 +62,6 @@ def professions():
     db.close()
     return render_template("professions.html",professions=results)
 
-
-
-
-
 # Agents Detail Route
 @app.route("/agent/<int:id>")
 def all_agents(id):
@@ -80,15 +76,21 @@ def all_agents(id):
     WHERE Agents.id = ?;"
     cursor.execute(sql, (id,))
     agent = cursor.fetchone()
-    
-    abilities_sql = "SELECT * FROM agent_ability WHERE agent_id =?;"
+
+    abilities_sql = """
+    SELECT Abilities.name, Abilities.description, Abilities.MaximumCarry, 
+        Abilities.duration, Abilities.damage, Abilities.buff, 
+        Abilities.debuff, Abilities.cost, Abilities.PointsRequired, Abilities.windup
+    FROM Abilities
+    JOIN Agent_Ability ON Abilities.id = Agent_Ability.ability_id
+    WHERE Agent_Ability.agent_id = ?;
+    """
+    # for the columns in the table that has a space, we can use a "" to cover it and it would be fine.
     cursor.execute(abilities_sql,(id,))
     abilities = cursor.fetchall()
-    
+
     db.close()
     return render_template('all_agents.html', agent=agent,abilities=abilities)
-
-
 
 if __name__=='__main__':
     app.run(debug=True, port=4000)

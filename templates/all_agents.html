@@ -46,44 +46,45 @@
         <h2 class="abilities-header"> Abilities </h2>
         {% for ability in abilities %}
         <div class="ability-container">
+
                 <p class="ability-name">
-                    <strong>Name:</strong> {{ ability[1] }}
+                    <strong>Name:</strong> {{ ability[0] }}
                 </p>
 
                 <p class="ability-description">
-                    <strong>Description:</strong> {{ ability[2] }}
+                    <strong>Description:</strong> {{ ability[1] }}
                 </p>
 
                 <p class="ability-maximum-carry">
-                    <strong>Maximum carry:</strong> {{ ability[3] }}
+                    <strong>Maximum carry:</strong> {{ ability[2] }}
                 </p>   
                 
                 <p class="ability-duration">
-                    <strong>Duration:</strong>
+                    <strong>Duration:</strong> {{ ability[3] }}
                 </p>
 
                 <p class="ability-damage">
-                    <strong>Damage:</strong>
+                    <strong>Damage:</strong> {{ ability[4] }}
                 </p>
 
                 <p class="ability-buff">
-                    <strong>Buff:</strong>
+                    <strong>Buff:</strong> {{ ability[5] }}
                 </p>
 
                 <p class="ability-debuff">
-                    <strong>Debuff:</strong>
+                    <strong>Debuff:</strong> {{ ability[6] }}
                 </p>
 
                 <p class="ability-cost">
-                    <strong>Cost:</strong>
+                    <strong>Cost:</strong> {{ ability[7] }}
                 </p>
 
                 <p class="ability-points-required">
-                    <strong>Points required:</strong>
+                    <strong>Points required:</strong> {{ ability[8] }}
                 </p>
 
                 <p class="windup">
-                    <strong>Windup:</strong>
+                    <strong>Windup:</strong> {{ ability[9] }}
                 </p>
         </div>
         {% endfor %}
