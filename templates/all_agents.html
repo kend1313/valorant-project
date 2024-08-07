@@ -1,6 +1,8 @@
 {%extends "layout.html"%}
 {%block body %}
 
+<a id="top"></a>
+
 <div class="agent-detail">
     <h1 class="agent-name">
         {{ agent[0] }}
@@ -28,17 +30,24 @@
             <strong>Race:</strong> {{ agent[5] }}
         </p>
 
+        {% if agent[6] %}
         <p class="id-aliases">
             <strong>Aliases:</strong> {{ agent[6] }}
         </p>
+        {% endif %}
+        <!-- by using this endif technique, the heading won't be showing if there is not any variables or values in the db. -->
 
+        {% if agent[7] %}
         <p class="id-real_name">
             <strong>Real Name:</strong> {{ agent[7] }}
         </p>
+        {% endif %}
 
+        {% if agent[8] %}
         <p class="id-relationship">
             <strong>Relationships:</strong> {{ agent[8] }}
         </p>
+        {% endif %}
         <!-- <strong> is basiccally just a bold -->
     </div>
 
@@ -48,49 +57,67 @@
         <div class="ability-container">
 
                 <p class="ability-name">
-                    <strong>Name:</strong> {{ ability[0] }}
+                    <strong>Ability Name:</strong> {{ ability[0] }}
                 </p>
 
                 <p class="ability-description">
                     <strong>Description:</strong> {{ ability[1] }}
                 </p>
 
+                {% if ability[2] %}
                 <p class="ability-maximum-carry">
                     <strong>Maximum carry:</strong> {{ ability[2] }}
-                </p>   
+                </p>
+                {% endif %}   
                 
+                {% if ability[3] %}
                 <p class="ability-duration">
                     <strong>Duration:</strong> {{ ability[3] }}
                 </p>
+                {% endif %}
 
+                {% if ability[4] %}
                 <p class="ability-damage">
                     <strong>Damage:</strong> {{ ability[4] }}
                 </p>
+                {% endif %}
 
+                {% if ability[5] %}
                 <p class="ability-buff">
                     <strong>Buff:</strong> {{ ability[5] }}
                 </p>
+                {% endif %}
 
+                {% if ability[6] %}
                 <p class="ability-debuff">
                     <strong>Debuff:</strong> {{ ability[6] }}
                 </p>
+                {% endif %}
 
+                {% if ability[7] %}
                 <p class="ability-cost">
                     <strong>Cost:</strong> {{ ability[7] }}
                 </p>
+                {% endif %}
 
+                {% if ability[8] %}
                 <p class="ability-points-required">
                     <strong>Points required:</strong> {{ ability[8] }}
                 </p>
+                {% endif %}
 
+                {% if ability[9] %}
                 <p class="windup">
                     <strong>Windup:</strong> {{ ability[9] }}
                 </p>
+                {% endif %}
         </div>
         {% endfor %}
     </div>
 
     <div class="back-button-container">
+        <a href="#top" class="back-button">Back to Top</a>
+        <!-- link to go back to the top -->
         <a href="/" class="back-button">Back to Home</a>
         <!-- link to go back to the home page -->
     </div>

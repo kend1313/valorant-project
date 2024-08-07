@@ -338,17 +338,21 @@ h3{
     font-weight: bold;
     text-decoration: none;
     margin-right: 40px;
+    text-align: end;
 }
 
 .back-button-container{
     display:flex;
     justify-content: flex-end;
+    flex-direction: column;
+
     width: 100%;
 }
 
 .abilities-header {
     margin: 0;
     padding: 25px;
+    font-weight: bold;
     width: 100vw;
     /* sets the width to 100% of the viewport width */
     background-color: rgb(180, 45, 45);
@@ -367,6 +371,10 @@ h3{
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ability-container strong{
+    color: black;
 }
 
 .agent-abilities {
@@ -460,6 +468,3 @@ h3{
     
 }
 
-.container{
-    
-}
