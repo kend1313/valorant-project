@@ -3,7 +3,7 @@
 
 import sqlite3
 
-from flask import Flask, render_template # type: ignore
+from flask import Flask, render_template, abort # type: ignore
 
 app = Flask(__name__)
 
@@ -63,35 +63,54 @@ def professions():
     return render_template("professions.html",professions=results)
 
 # Agents Detail Route
+# Agents Detail Route
 @app.route("/agent/<int:id>")
 def all_agents(id):
+    if id < 1 or id > 25:
+        # If the ID is out of the valid range, trigger a 404 error
+        abort(404)
+    
     db = sqlite3.connect('val.db')
     cursor = db.cursor()
-    sql = "SELECT Agents.name, Agents.description, Professions.name, Origin.name, \
-    Agents.pronouns, Agents.race, Agents.alses, Agents.real_name, \
-    Agents.relationships, Agents.image \
-    FROM Agents \
-    JOIN Professions ON Agents.professions = Professions.id \
-    JOIN Origin ON Agents.origin = Origin.id \
-    WHERE Agents.id = ?;"
+    
+    # Query to fetch the agent's details
+    sql = """
+    SELECT Agents.name, Agents.description, Professions.name, Origin.name, 
+           Agents.pronouns, Agents.race, Agents.alses, Agents.real_name, 
+           Agents.relationships, Agents.image 
+    FROM Agents 
+    JOIN Professions ON Agents.professions = Professions.id 
+    JOIN Origin ON Agents.origin = Origin.id 
+    WHERE Agents.id = ?;
+    """
     cursor.execute(sql, (id,))
     agent = cursor.fetchone()
 
+    if not agent:
+        # If no agent was found, trigger a 404 error
+        db.close()
+        abort(404)
+
+    # Query to fetch the agent's abilities
     abilities_sql = """
     SELECT Abilities.name, Abilities.description, Abilities.MaximumCarry, 
-        Abilities.duration, Abilities.damage, Abilities.buff, 
-        Abilities.debuff, Abilities.cost, Abilities.PointsRequired, Abilities.windup
+           Abilities.duration, Abilities.damage, Abilities.buff, 
+           Abilities.debuff, Abilities.cost, Abilities.PointsRequired, Abilities.windup
     FROM Abilities
     JOIN Agent_Ability ON Abilities.id = Agent_Ability.ability_id
     WHERE Agent_Ability.agent_id = ?;
     """
-    # for the columns in the table that has a space, we can use a "" to cover it and it would be fine.
-    cursor.execute(abilities_sql,(id,))
+    cursor.execute(abilities_sql, (id,))
     abilities = cursor.fetchall()
 
     db.close()
-    return render_template('all_agents.html', agent=agent,abilities=abilities)
+    
+    return render_template('all_agents.html', agent=agent, abilities=abilities)
 
-if __name__=='__main__':
+# Custom 404 error handler
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+if __name__ == '__main__':
     app.run(debug=True, port=4000)
-    app.run(debug=True)
