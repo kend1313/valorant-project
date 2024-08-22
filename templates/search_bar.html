@@ -1,16 +1,20 @@
 {% extends "layout.html" %}
 {% block body %}
-<h2>Search Results for "{{ query }}"</h2>
+<div class="search-results-container">
+    <h2 class="search-results-header">Search Results for "{{ query }}"</h2>
 
-{% if results %}
-    <ul>
-    {% for agent in results %}
-        <li><a href="/agent/{{ agent[0] }}">{{ agent[1] }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No results found.</p>
-{% endif %}
+    {% if results %}
+        <ul class="search-results-list">
+        {% for agent in results %}
+            <li class="search-result-item">
+                <a href="/agent/{{ agent[0] }}" class="search-result-link">{{ agent[1] }} <span class="click-to-view">(click to view)</span></a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p class="no-results">No results found for "{{ query }}".</p>
+    {% endif %}
 
-<a href="/" class="back-button">Back to Home</a>
+    <a href="/" class="back-button">Back to Home</a>
+</div>
 {% endblock %}

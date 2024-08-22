@@ -512,3 +512,51 @@ h3{
 .search-button:hover {
     background-color: #902020;
 }
+
+/* searched page */
+.search-results-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.search-results-header {
+    font-size: 50px;
+    color: #b03030;
+    margin-bottom: 20px;
+}
+
+.search-results-list {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.search-result-item {
+    margin: 10px 0;
+}
+
+.search-result-link {
+    font-size: 30px;
+    color: #b03030;
+    text-decoration: none;
+}
+
+.search-result-link:hover {
+    color: #902020;
+    text-decoration: underline;
+}
+
+.no-results {
+    font-size: 18px;
+    color: #b03030;
+    margin-bottom: 20px;
+}
+
+.click-to-view {
+    font-size: 14px;
+    color: #666;
+    margin-left: 5px;
+    font-style: italic;
+}
