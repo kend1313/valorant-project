@@ -483,3 +483,32 @@ h3{
     justify-content: center;
     flex-direction: column;
 }
+
+/* Search bar css (from home.html) */
+.search-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.search-bar {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #b03030;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.search-button {
+    padding: 10px 20px;
+    background-color: #b03030;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #902020;
+}

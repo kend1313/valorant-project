@@ -3,7 +3,7 @@
 
 import sqlite3
 
-from flask import Flask, render_template, abort # type: ignore
+from flask import Flask, render_template, abort, request # type: ignore
 
 app = Flask(__name__)
 
@@ -11,6 +11,19 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return render_template("home.html")
+
+#search bar
+@app.route('/search')
+def search():
+    query = request.args.get('query','')
+    db = sqlite3.connect('val.db')
+    cursor = db.cursor()
+    sql = "SELECT * FROM Agents WHERE name LIKE ?"
+    cursor.execute(sql, ('%' + query + '%',))
+    results = cursor.fetchall()
+    db.close()
+    
+    return render_template('search_bar.html', query=query, results=results)
 
 # Purpose Route
 @app.route("/purpose")

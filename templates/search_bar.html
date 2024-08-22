@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block body %}
+<h2>Search Results for "{{ query }}"</h2>
+
+{% if results %}
+    <ul>
+    {% for agent in results %}
+        <li><a href="/agent/{{ agent[0] }}">{{ agent[1] }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No results found.</p>
+{% endif %}
+
+<a href="/" class="back-button">Back to Home</a>
+{% endblock %}

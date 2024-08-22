@@ -1,6 +1,14 @@
 {% extends "layout.html"%}
 {% block body %}
 
+<div class="search-container">
+    <form action="/search" method="get">
+        <input type="text" placeholder="Search for agents..." name="query" class="search-bar">
+        <button type="submit" class="search-button">Search</button>
+    </form>
+</div>
+<!-- The search bar -->
+ 
 <h2 class="home-header">
     All Agents
 </h2>
