@@ -1,13 +1,13 @@
 '''docstring -Ken Dong - agents database application'''
-#imports
+# imports
 import sqlite3
 
 
-#contant and variables
+# contant and variables
 DATABASE = "val.db"
 
 
-#functions
+# functions
 # 1st function:
 def print_all_agents():
     '''print all agents'''
@@ -22,7 +22,7 @@ def print_all_agents():
         cursor.execute(sql)
         # execute the SQL quary
         results = cursor.fetchall()
-        #fetch all results from the execute query
+        # fetch all results from the execute query
 
         for agent in results:
             # unpack the agent data from the tuple
@@ -91,6 +91,7 @@ def print_all_agents_by_profession_id():
         db.close()
         # close the connection with the database
 
+
 # 3rd function:
 def print_names_of_agents():
     '''print names of the agents'''
@@ -131,6 +132,7 @@ def print_professions_of_agents():
     finally:
         db.close()
 
+
 # 5th function:
 def print_names_and_race_of_agents():
     '''print the names and race of the agents'''
@@ -159,7 +161,8 @@ def print_name_and_descriptions_of_agents():
         db = sqlite3.connect(DATABASE)
         cursor = db.cursor()
         sql = "SELECT name, description FROM Agents;"
-        # SQL query to select the 'name' and 'description' columns from the 'Agents' table
+        # SQL query to select the 'name' and 'description'
+        # columns from the 'Agents' table #
         cursor.execute(sql)
         results = cursor.fetchall()
 
@@ -174,6 +177,7 @@ def print_name_and_descriptions_of_agents():
         print(f"An error occured: {e}")
     finally:
         db.close()
+
 
 # 7th function:
 def print_name_and_pronouns_of_agents():
@@ -257,6 +261,7 @@ def print_all_abilities():
     finally:
         db.close()
 
+
 # 10th function:
 def print_abilities_by_cost():
     '''print all the abiliites alng with the cost'''
@@ -291,6 +296,7 @@ def print_abilities_by_cost():
     finally:
         db.close()
 
+
 # 11th function:
 def display_options(options):
     '''Display options for the user to select from'''
@@ -307,6 +313,7 @@ def display_options(options):
         else:
             print("Invalid choice. Please select a valid number.")
             # print an error message for invalid choices
+
 
 def insert_a_new_agent():
     '''Insert a new agent'''
@@ -378,7 +385,6 @@ def insert_a_new_agent():
         cursor.execute(sql, val)
         # Execute the SQL query with the provided values
 
-
         db.commit()
         # Commit the transaction to save the changes into the database.
         print("New agent inserted successfully.")
@@ -390,7 +396,7 @@ def insert_a_new_agent():
         db.close()
 
 
-#main code
+# main code
 while True:
     user_input = input(
 """
