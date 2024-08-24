@@ -27,22 +27,26 @@ def print_all_agents():
         for agent in results:
             # unpack the agent data from the tuple
             agent_id, name, description, profession_id, origin_id, \
-            pronouns, race , alses, real_name, relationships = agent
-            # the SQL query copied
+                pronouns, race, alses, real_name, relationships = agent[:10]
+            # the SQL query copied1
             print(f"Agent ID: {agent_id}")
             # print the agent id, displayed as agent id : {data input}
             print(f"Name: {name}")
             print(f"Description: {description.strip('\n')}")
             # print the agent description and got rid of any
-            # extra line space between this and the next column in results terminal.
+            # extra line space between this and the next column
+            # in results terminal.
             print(f"Profession ID: {profession_id}")
             print(f"Origin ID: {origin_id}")
             print(f"Pronouns: {pronouns}")
             print(f"Species: {race}")
             print(f"Alses: {alses if alses else 'N/A'}")
-            # print the alses of agents, automatically displays N/A if there isn't any
-            print(f"Real Name: {real_name if real_name else 'N/A'}")
-            print(f"Relationships: {relationships if relationships else 'N/A'}")
+            # print the alses of agents, automatically displays
+            # N/A if there isn't any
+            print(f"Real Name:"
+                  f"{real_name if real_name else 'N/A'}")
+            print(f"Relationships:"
+                  f"{relationships if relationships else 'N/A'}")
             print("-" * 40)
             # print a separator line
 
@@ -61,27 +65,30 @@ def print_all_agents_by_profession_id():
         db = sqlite3.connect(DATABASE)
         cursor = db.cursor()
         sql = "SELECT * from Agents ORDER BY professions;"
-        # SQL quary to select all records from the 'Agents' table, ordered by 'profession'
+        # SQL quary to select all records from the 'Agents' table,
+        # ordered by 'profession'
         cursor.execute(sql)
         results = cursor.fetchall()
 
         for agent in results:
             # unpack the agent data from the tuple
             agent_id, name, description, profession_id, origin_id, \
-            pronouns, race, alses, real_name, relationships = agent
+                pronouns, race, alses, real_name, relationships = agent[:10]
             # the SQL query copied
             print(f"Agent ID: {agent_id}")
             print(f"Name: {name}")
             print(f"Description: {description.strip('\n')}")
             # print the agent description and got rid of any
-            # extra line space between this and the next column in results terminal.
+            # extra line space between this and the next
+            # column in results terminal.
             print(f"Profession ID: {profession_id}")
             print(f"Origin ID: {origin_id}")
             print(f"Pronouns: {pronouns}")
             print(f"Species: {race}")
             print(f"Alses: {alses if alses else 'N/A'}")
             print(f"Real Name: {real_name if real_name else 'N/A'}")
-            print(f"Relationships: {relationships if relationships else 'N/A'}")
+            print(f"Relationships:"
+                  f"{relationships if relationships else 'N/A'}")
             print("-" * 40)
             # print a separator line
 
@@ -103,7 +110,8 @@ def print_names_of_agents():
     results = cursor.fetchall()
     for val in results:
         print(val[0])
-        # print only the name, no other brackets or quotation mark, displayed nicer.
+        # print only the name, no other brackets or quotation mark,
+        # displayed nicer.
     db.close()
 
 
@@ -115,8 +123,10 @@ def print_professions_of_agents():
         cursor = db.cursor()
         sql = 'SELECT Agents.name, Professions.name from Agents \
         Join Professions On Agents.professions = Professions.id;'
-        # SQL quary to select the names from the 'Agents' table and the 'Professions' table
-        # Joining the 'Agents' and 'Professions' tables on the 'professions' column in 'Agents'
+        # SQL quary to select the names from the 'Agents' table
+        # and the 'Professions' table
+        # Joining the 'Agents' and 'Professions' tables on the
+        # 'professions' column in 'Agents'
         # and the 'id' column in 'Professions'
         cursor.execute(sql)
         results = cursor.fetchall()
@@ -186,7 +196,7 @@ def print_name_and_pronouns_of_agents():
         db = sqlite3.connect(DATABASE)
         cursor = db.cursor()
         sql = "SELECT name, pronouns FROM Agents;"
-        # SQL quary to select names and pronouns of agents from the Agents table
+        # SQL quary to select names and pronouns of agents from Agents table
         cursor.execute(sql)
         results = cursor.fetchall()
 
@@ -208,7 +218,8 @@ def print_name_and_descriptions_of_abilities():
         db = sqlite3.connect(DATABASE)
         cursor = db.cursor()
         sql = "SELECT name, description FROM Abilities;"
-        # SQL query to select the 'name' and 'description' columns from the 'Abilities' table
+        # SQL query to select the 'name' and 'description' columns
+        # from the 'Abilities' table
         cursor.execute(sql)
         results = cursor.fetchall()
 
@@ -216,7 +227,8 @@ def print_name_and_descriptions_of_abilities():
             print(f"Ability Name: {name}")
             print(f"Description: {description}")
             # print description
-            # don't need the strip method as there is no more variables to be prints after this
+            # don't need the strip method as there is no more variables
+            # to be prints after this
             print("-" * 40)
 
     except sqlite3.Error as e:
@@ -237,8 +249,8 @@ def print_all_abilities():
         results = cursor.fetchall()
 
         for ability in results:
-            ability_id, name, description, maximum_carry, duration, damage, buff, \
-            debuff, cost, points_required, windup = ability
+            ability_id, name, description, maximum_carry, duration, damage, \
+                buff, debuff, cost, points_required, windup = ability
             # SQL query copied
             print(f"Ability ID: {ability_id}")
             print(f"Name: {name}")
@@ -269,13 +281,14 @@ def print_abilities_by_cost():
         db = sqlite3.connect(DATABASE)
         cursor = db.cursor()
         sql = "SELECT * FROM Abilities ORDER BY cost;"
-        # SQL query to select all columns from the 'Abilities' table, ordered by the 'cost' column
+        # SQL query to select all columns from the 'Abilities' table,
+        # ordered by the 'cost' column
         cursor.execute(sql)
         results = cursor.fetchall()
 
         for ability in results:
-            ability_id, name, description, maximum_carry, duration, damage, buff, \
-            debuff, cost, points_required, windup = ability
+            ability_id, name, description, maximum_carry, duration, damage, \
+                buff, debuff, cost, points_required, windup = ability
             print(f"Ability ID: {ability_id}")
             print(f"Name: {name}")
             print(f"Description: {description.strip('\n')}")
@@ -362,26 +375,31 @@ def insert_a_new_agent():
         # Prompt the user to enter the agent's race
 
         alses = input("What are the new agent's alses? (Enter 'X' if none) ")
-        # Prompt the user to enter the agent's alses, with a provision for no alses.
+        # Prompt the user to enter the agent's alses,
+        # with a provision for no alses.
         if alses.upper() == 'X':
             # Set alses to None if the user entered 'X'
             alses = None
 
-        real_name = input("What is the new agent's real name? (Enter 'X' if none) ")
-        # Prompt the user to enter the agent's real name, with a provision for no real name.
+        real_name = input(
+            "What is the new agent's real name? (Enter 'X' if none) ")
+        # Prompt the user to enter the agent's real name,
+        # with a provision for no real name.
         if real_name.upper() == 'X':
             # Set real name to None if the user entered 'X'
             real_name = None
 
-        relationships = input("What are the new agent's relationships? (Enter 'X' if none) ")
-        # Prompt the user to enter the agent's relationships, with a provision for no relationships.
+        relationships = input(
+            "What are the new agent's relationships? (Enter 'X' if none) ")
+        # Prompt the user to enter the agent's relationships,
+        # with a provision for no relationships.
         if relationships.upper() == 'X':
             # Set relationship to None if the user entered 'X'
             relationships = None
 
-        val = (name, description, professions, origin, pronouns, \
-            # Tuple containing all the values to be inserted into the database
+        val = (name, description, professions, origin, pronouns,
                race, alses, real_name, relationships)
+        # Tuple containing all the values to be inserted into the database
         cursor.execute(sql, val)
         # Execute the SQL query with the provided values
 
@@ -399,7 +417,7 @@ def insert_a_new_agent():
 # main code
 while True:
     user_input = input(
-"""
+        """
 What would you like to do.
 1. Print all agents
 2. Print all agents by professions id
@@ -442,6 +460,7 @@ What would you like to do.
         break
     else:
         print("That was not an option\n")
-# Print a message to users indicating their input wasn't a valid option (if not in the range 1-12)
-# This is used for input validation to handle cases where the uer enteres something
-# Defined options are 1 - 12.
+# Print a message to users indicating their input wasn't a valid option
+# (if not in the range 1-12) since defined options are 1 - 12.
+# This is used for input validation to handle cases
+# where the uer enteres something
