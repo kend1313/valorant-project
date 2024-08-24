@@ -1,4 +1,4 @@
-# docstring - Ken Dong - Agents database application
+''' docstring - Ken Dong - Agents database application '''
 # imports
 
 import sqlite3
@@ -11,13 +11,24 @@ app = Flask(__name__)
 # Home Route
 @app.route("/")
 def home():
+    '''
+    renders the home page
+    '''
     return render_template("home.html")
 
 
 # search bar
 @app.route('/search')
 def search():
-    query = request.args.get('query', '')
+    '''
+    renders the search bar in home page
+    '''
+    query = request.args.get('query', '').strip()
+
+    if not query:
+        # check if the query is empty
+        return render_template('404.html'), 404
+
     db = sqlite3.connect('val.db')
     cursor = db.cursor()
     sql = "SELECT * FROM Agents WHERE name LIKE ?"
@@ -31,12 +42,18 @@ def search():
 # Purpose Route
 @app.route("/purpose")
 def purpose():
+    '''
+    renders the purpose page
+    '''
     return render_template("purpose.html")
 
 
 # Agents Table Route
 @app.route("/agentstable")
 def agentstable():
+    '''
+    renders the agentstable page
+    '''
     db = sqlite3.connect('val.db')
     cursor = db.cursor()
     sql = "SELECT Agents.id, Agents.name, Professions.name, \
@@ -59,6 +76,9 @@ def agentstable():
 # Professionstable Route
 @app.route("/professionstable")
 def professionstable():
+    '''
+    renders the professionstable page
+    '''
     db = sqlite3.connect('val.db')
     cursor = db.cursor()
     sql = "SELECT name, description, image FROM Professions;"
@@ -74,6 +94,9 @@ def professionstable():
 # Professions Route
 @app.route("/professions")
 def professions():
+    '''
+    renders the professions page
+    '''
     db = sqlite3.connect('val.db')
     cursor = db.cursor()
     sql = "SELECT name, description, image FROM Professions;"
@@ -86,6 +109,9 @@ def professions():
 # Agents Detail Route
 @app.route("/agent/<int:id>")
 def all_agents(id):
+    '''
+    renders the agents detailed page
+    '''
     if id < 1 or id > 25:
         # If the ID is out of the valid range, trigger a 404 error
         abort(404)
@@ -116,7 +142,7 @@ def all_agents(id):
     SELECT Abilities.name, Abilities.description, Abilities.MaximumCarry,
            Abilities.duration, Abilities.damage, Abilities.buff,
            Abilities.debuff, Abilities.cost, Abilities.PointsRequired,
-           Abilities.windup,
+           Abilities.windup
     FROM Abilities
     JOIN Agent_Ability ON Abilities.id = Agent_Ability.ability_id
     WHERE Agent_Ability.agent_id = ?;
@@ -132,6 +158,9 @@ def all_agents(id):
 # Custom 404 error handler
 @app.errorhandler(404)
 def page_not_found(e):
+    '''
+    renders the 404 page
+    '''
     return render_template('404.html'), 404
 
 
