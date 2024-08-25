@@ -36,7 +36,7 @@ def search():
     results = cursor.fetchall()
     db.close()
 
-    return render_template('search_bar.html', query=query, results=results)
+    return render_template('searched_page.html', query=query, results=results)
 
 
 # Purpose Route

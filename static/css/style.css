@@ -25,7 +25,7 @@ h1{
     /* rounds bottom right corner */
     border-bottom-left-radius: 30px;
     /* rounds bottom left corner */
-                                            /* header */
+                                                                                    /* header */
 }
 
 .home-header{
@@ -107,7 +107,7 @@ h1{
 .nav-professions:hover {
     color: brown;
 }
-                                            /* nav css */
+                                                                                    /* nav css */
 
 body{
     font-family:"Open Sans","Segoe UI",Tahoma,sans-serif;
@@ -116,7 +116,7 @@ body{
     color:rgb(161, 152, 169);
      /* set text colour  */
 }
-                                            /* body css */
+                                                                                    /* body css */
 
 .footer-container{
 /* footer container used in layout.html */
@@ -142,7 +142,7 @@ h3{
     bottom: 0;
     /* to position to the bottom of the containing block */
 }
-                                            /* footer css */
+                                                                                    /* footer css */
 
 /* applies default styles to all elements */
 *,
@@ -278,7 +278,7 @@ h3{
 /* reference to Code Keeper */
 /* Link: https://www.youtube.com/watch?v=SJN5n1FfRi0&t=203s  */
 
-                                            /* home route */
+                                                                                    /* home route */
 .agent-name {
 /* h1 of all agents page */
     font-size: 2.5em;
@@ -431,7 +431,7 @@ h3{
     margin: 20px auto;
     /* centre the container */
 }
-                                            /* All agents route */
+                                                                                    /* All agents route */
 
 
 .purpose-discription{
@@ -455,7 +455,7 @@ h3{
     border-top-right-radius: 30px;
 }
 
-                                            /* purpose route css */
+                                                                                    /* purpose route css */
                                             
 .agentstable-h1{
 /* h1 of agentstable page */
@@ -505,7 +505,7 @@ h3{
 /* styles the table headers & cells of agentstable page */
     font-size: 25px;
 }
-                                            /* agentstable css */
+                                                                                    /* agentstable css */
 
 .professionstable-h1{
 /* h1 of professionstable page */
@@ -515,7 +515,7 @@ h3{
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
 }
-                                            /* professionstable css */
+                                                                                    /* professionstable css */
 
 .professions-h1{
 /* h1 of professions page */
@@ -540,32 +540,71 @@ h3{
 /* description of the card in professions page */
     font-size: 15px;
 }
-                                            /* professions css */
+                                                                                    /* professions css */
 
-
-/* 404.html css */
 .back-button2{
-    font-size: 40px;
+/* back to home button in the 404 page */
+    font-size: 30px;
+    color: white;
+    background-color: #b03030;
+    padding: 15px 30px;
+    /* 15px padding top & bottom, 30px on left & right */
+    border-radius: 10px ;
     margin-top: 20px;
-    padding:15px 30px;
     font-weight: bold;
     text-decoration: none;
-    text-align: center;
 }
 
 .back-button-container2{
+/* container of the back button in 404 page */
     display:flex;
+    /* use flexbox layout */
     justify-content: center;
+    /* center content */
     flex-direction: column;
 }
 
-/* Search bar css (from home.html) */
+.page-not-found-container {
+/* main container in 404.html */
+    text-align: center;
+    margin: 50px;
+}
+
+.page-not-found-h1 {
+/* 404 header in 404 page */
+    font-size: 100px;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.page-not-found-h2 {
+/* h2 in 404 page */
+    font-size: 50px;
+    color: black;
+}
+
+.page-not-found-description {
+/* description text in 404 page */
+    font-size: 25px;
+    color: #7a7a7a;
+}
+
+.page-not-found-suggestion {
+/* Styles the suggestion text in 404.html */
+    font-size: 20px;
+    color: #7a7a7a;
+}
+/* 404.html css */
+
 .search-container {
+/* styles the search container in the home page */
     text-align: center;
     margin: 20px 0;
+    /* add margin to top and bottom */
 }
 
 .search-bar {
+/* styles the search bar in the home pages */
     width: 300px;
     padding: 10px;
     font-size: 16px;
@@ -575,63 +614,80 @@ h3{
 }
 
 .search-button {
+/* styles the search button in the home page */
     padding: 10px 20px;
+    /* 10px padding top & bottom, 20px padding left & right */
     background-color: #b03030;
     color: white;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
+    /* change cursor to pointer on hover */
 }
 
 .search-button:hover {
+/* styles the search button on hover in the home page */
     background-color: #902020;
 }
+                                                                                    /* Search bar css (from home.html) */
 
-/* searched page */
 .search-results-container {
+/* container for search results in search_bar.html */
     padding: 20px;
     max-width: 800px;
     margin: 0 auto;
+    /* center the container */
     text-align: center;
 }
 
 .search-results-header {
+/* searched results header in searched page */
     font-size: 50px;
     color: #b03030;
     margin-bottom: 20px;
 }
 
 .search-results-list {
+/* list of searched results in searched page */
     list-style-type: none;
+    /* removes list bullets */
     padding: 0;
     margin-bottom: 20px;
 }
 
 .search-result-item {
+/* styles each item in the seach results list in the searched paged */
     margin: 10px 0;
+    /* 10px margins for top & bottom */
 }
 
 .search-result-link {
+/* the link to see the agent */
     font-size: 30px;
     color: #b03030;
     text-decoration: none;
 }
 
 .search-result-link:hover {
+/* links on hover */
     color: #902020;
     text-decoration: underline;
 }
 
 .no-results {
+/* styles for 'No results found' */
     font-size: 18px;
     color: #b03030;
     margin-bottom: 20px;
 }
 
 .click-to-view {
+/* styles the 'click to view' text */
     font-size: 14px;
     color: #666;
     margin-left: 5px;
     font-style: italic;
+    /* italicize the text to stand out from the agents name */
 }
+                                                                                    /* searched page */
