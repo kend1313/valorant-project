@@ -107,12 +107,12 @@ def professions():
 
 
 # Agents Detail Route
-@app.route("/agent/<int:id>")
-def all_agents(id):
+@app.route("/agent/<int:agent_id>")
+def all_agents(agent_id):
     '''
     renders the agents detailed page
     '''
-    if id < 1 or id > 25:
+    if agent_id < 1 or agent_id > 25:
         # If the ID is out of the valid range, trigger a 404 error
         abort(404)
 
@@ -129,7 +129,7 @@ def all_agents(id):
     JOIN Origin ON Agents.origin = Origin.id
     WHERE Agents.id = ?;
     """
-    cursor.execute(sql, (id,))
+    cursor.execute(sql, (agent_id,))
     agent = cursor.fetchone()
 
     if not agent:
@@ -147,7 +147,7 @@ def all_agents(id):
     JOIN Agent_Ability ON Abilities.id = Agent_Ability.ability_id
     WHERE Agent_Ability.agent_id = ?;
     """
-    cursor.execute(abilities_sql, (id,))
+    cursor.execute(abilities_sql, (agent_id,))
     abilities = cursor.fetchall()
 
     db.close()

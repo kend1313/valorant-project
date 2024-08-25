@@ -3,10 +3,12 @@ h1{
     /* ensure there is no margin */
     padding: 25px;
     width: auto;
+    /* set width to auto */
     background-color:rgb(180, 45, 45);
     text-align: center;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
+    /* rounded bottom corners */
 }
 
 .header1{
@@ -27,7 +29,8 @@ h1{
 }
 
 .home-header{
-    text-align: center;
+/*  header in home.html */
+    text-align: center; 
     color: black;
     font-size: 30px;
     font-weight: bold;
@@ -35,9 +38,11 @@ h1{
 }
 
 .nav-container{
+/* navigation bar container used in layout.html  */
     font-size: 25px;
     margin-bottom: 25px;
     margin-top: 20px;
+    /* add margin above and below the container */
     font-weight: bold;
     text-align: center;
     margin-right: 30px;
@@ -47,17 +52,20 @@ h1{
 }
 
 .nav-home{
+/* home navigation link in layout.html */
     font-size: 25px;
     color: black;
     margin-left: 50px;
     text-decoration: none;
+    /* removes defualt underline */
 }
 .nav-home:hover{
     color: brown;
-    /* to change the font colour into the hover color when your mouse is on the bottom. */
+    /* changes colour hover of home to brown */
 }
 
 .nav-purpose{
+/* purpose navigation link in layout.html */
     font-size: 25px;
     color: black;
     margin-left: 50px;
@@ -68,6 +76,7 @@ h1{
 }
 
 .nav-agentstable{
+/* agentstable navigation link in layout.html */
     font-size: 25px;
     color: black;
     margin-left: 50px;
@@ -78,6 +87,7 @@ h1{
 }
 
 .nav-professionstable{
+/* profressionstable navigation link in layout.html */
     font-size: 25px;
     color: black;
     margin-left: 50px;
@@ -88,12 +98,12 @@ h1{
 }
 
 .nav-professions {
+/* professions navigation link in layout.html */
     font-size: 25px;
     color: black;
     margin-left: 50px;
     text-decoration: none;
 }
-
 .nav-professions:hover {
     color: brown;
 }
@@ -101,16 +111,20 @@ h1{
 
 body{
     font-family:"Open Sans","Segoe UI",Tahoma,sans-serif;
+    /* set font family */
     background-color:rgb(235, 242, 137);
-    color:rgb(161, 152, 169); 
+    color:rgb(161, 152, 169);
+     /* set text colour  */
 }
                                             /* body css */
 
 .footer-container{
+/* footer container used in layout.html */
     border-top: 5px solid;
 }
 
 .footer-copyright{
+/* copyright text in the footer (layout.html) */
     color: white;
     font-weight: bold;
     text-align: center;
@@ -118,17 +132,19 @@ body{
 }
 
 h3{
+/* h3 element in the footer */
     padding: 25px;
     width: auto;
     background-color: rgb(79, 76, 76);
     border-radius: 0px;
-    /*  removes rounded corners, making them square */
+    /*  removes border radius */
     text-align: center;
     bottom: 0;
     /* to position to the bottom of the containing block */
 }
                                             /* footer css */
 
+/* applies default styles to all elements */
 *,
 *::before,
 *::after{
@@ -140,6 +156,7 @@ h3{
 }
 
 .card{
+/* the card elements used in home.html */
     position: relative;
     /* position relative */
     width: 270px;
@@ -165,7 +182,9 @@ h3{
 }
 
 .card::before{
+/* before pseudo-element of the card */
     content: '';
+    /* empty content */
     position:absolute;
     /* using absolute positioning */
     top: 0;
@@ -181,23 +200,26 @@ h3{
     opacity: 0;
     /* initially transparent */
     transition: all 0.1s ease-in-out;
+    /* add transition effect */
 }
 
 .card:hover {
+/* the hover on card */
     border: 2px solid;
     /* border colour on hover */
     box-shadow: #ffffff50 0 3px 8px;
     transform:translateY(15px);
     /* move card up on hover */
 }
-
 .card:hover::before {
     opacity: 1;
-    /* make before pseudo visible */
+    /* make before pseudo visible on hover */
 }
 
 .card img {
+/* the image with the card */
     position: absolute;
+    /* set position absolute */
     width: 100%;
     height: 100%;
     /* having full W & H to ensure see the full image */
@@ -210,6 +232,7 @@ h3{
 }
 
 .card-content {
+/* content with the card */
     position:relative;
     color: #fff;
     /* text colour */
@@ -224,17 +247,15 @@ h3{
 }
 
 .card:hover .card-content{
+/* card content on hover */
     opacity: 1;
+    /* make content visible on hover */
     transform: translateY(0);
     /* move content into view from invisible */
 }
 
-.card-h2{
-    font-weight: bold;
-    margin-top: 40px;
-}
-
 .card-content a{
+/* a with in the card  */
     display: inline-block;
     /* display as inline block */
     text-decoration: none;
@@ -259,7 +280,9 @@ h3{
 
                                             /* home route */
 .agent-name {
+/* h1 of all agents page */
     font-size: 2.5em;
+    /* set font size */
     margin-bottom: 20px;
     color: #b03030;
     border-radius: 10px;
@@ -270,8 +293,8 @@ h3{
     font-weight: bold;
 }
 
-
 .agent-image2{
+/* agent image of all agents page */
     width: 300px;
     height: 300px;
     display: block;
@@ -283,73 +306,90 @@ h3{
     /* subtle box shadow */
 
 }.id-description{
+/* descriptions sub-title used in all agents page */
     font-size: 35px;
     color: black;
     line-height: 1.3;
+    /* set line height */
     margin-bottom: 20px;
 }
 
 .id-profession{
+/* profession sub-title used in all agents page */
     font-size: 35px;
     color: black;
     margin-bottom: 20px;
 }
 
 .id-origin{
+/* orign sub-title used in all agents page */
     font-size: 35px;
     color: black;
     margin-bottom: 20px;
 }
 
 .id-pronouns{
+/* pronouns sub-totle used in all agents page */
     font-size: 35px;
     color: black;
     margin-bottom: 20px;
 }
 
 .id-race{
+/* race sub-title used in all agents page */
     font-size: 35px;
     color: black;
     margin-bottom: 20px;
 }
 
 .id-aliases{
+/* aliases sub-title used in all agents page */
     font-size: 35px;
     color: black;
     margin-bottom: 20px;
 }
 
 .id-real_name{
+/* real name sub-title used in all agents page */
     font-size: 35px;
     color: black;
     margin-bottom: 20px;
 }
 
 .id-relationship{
+/* relationship sub-title used in all agents page */
     font-size: 35px;
     color: black;
     margin-bottom: 20px;
 }
 
 .back-button{
+/* back to top & back to home botton used in all agents page */
     font-size: 40px;
     color: black;
     margin-top: 20px;
     margin-bottom: 20px;
+    /* add top & bottom margins */
     font-weight: bold;
     text-decoration: none;
     margin-right: 40px;
     text-align: end;
+    /* align the text to the right */
 }
 
 .back-button-container{
+/* container holding the 2 bottons in all agents page */
     display:flex;
+    /* use flexbox layout */
     justify-content: flex-end;
+    /* align content to the end */
     flex-direction: column;
+    /* arranfe items in a column */
     width: 100%;
 }
 
 .abilities-header {
+/* abilities section header of all agents page */
     margin: 0;
     padding: 25px;
     font-weight: bold;
@@ -361,23 +401,31 @@ h3{
     color: white;
     margin-bottom: 20px;
     position: relative;
+    /* set position to be relative */
     left: 50%;
+    /* position left at 50% */
     transform: translateX(-50%);
+    /* move the whole element left by 50% if its width */
+    /* whole element means the heading with its backgrolund */
 }
 
 .ability-container {
+/* container for individual abilities of all agents page */
     margin-bottom: 20px; 
     padding: 10px;
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* add subtle box shadow */
 }
 
 .ability-container strong{
+/* styles the strong elements (sub-titles) within the ability container */
     color: black;
 }
 
 .agent-abilities {
+/* agent abilities container of all agents page */
     margin-top: 20px;
     max-width: 1000px;
     margin: 20px auto;
@@ -387,16 +435,19 @@ h3{
 
 
 .purpose-discription{
+/* discription paragraph in purpose page */
     font-size: 30px;
     color: black;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
     padding-left: 250px;
     padding-right: 250px;
+    /* add lefgt & right paddings */
     margin-bottom: 20px;
 }
 
 .purpose-h1{
+/* h1 of purpose page */
     color: white;
     background-color:rgb(79, 76, 76);
     font-weight: bold;
@@ -407,6 +458,7 @@ h3{
                                             /* purpose route css */
                                             
 .agentstable-h1{
+/* h1 of agentstable page */
     color: white;
     background-color:rgb(79, 76, 76);
     font-weight: bold;
@@ -415,48 +467,58 @@ h3{
 }
 
 .agent-image1{
+/* agent images on the agentstable page */
     width: 60px;
     height: 60px;
 }
 
 .profession-image{
+/* professions image on agentstable page */
     width: 50px;
     height: 50px;
     background-color: gray;
 }
 
 .origin-image{
+/* country image on agentstable page */
     width: 100px;
     height: 50px;
 }
 
 .agent-image1, .profession-image, .origin-image {
+/* general styling for all imgaes used in the agentstable page */
     margin-right: 10px;
     vertical-align: middle;
+    /* align vertically to the middle */
 }
 
 .table-container{
+/* container for the agentstable */
     padding: 20px;
     max-width: 90%;
+    /* set max width to be 90% */
     margin: 0 auto;
     color: black;
 }
 
 .w3-table-all th, .w3-table-all td{
+/* styles the table headers & cells of agentstable page */
     font-size: 25px;
 }
                                             /* agentstable css */
 
 .professionstable-h1{
+/* h1 of professionstable page */
     color: white;
     background-color:rgb(79, 76, 76);
     font-weight: bold;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
 }
-/* professionstable css */
+                                            /* professionstable css */
 
 .professions-h1{
+/* h1 of professions page */
     font-size: 36px;
     color: white;
     background-color:rgb(79, 76, 76);
@@ -464,9 +526,22 @@ h3{
     text-align: center;
     padding: 20px;
     margin: 0;
+    /* remove margin */
     border-radius: 30px;
-    
 }
+
+.card-h2{
+/* the h2 (profession name heading) of the card in professions page */
+        font-weight: bold;
+        margin-top: 5px;
+    }
+
+.card-content p{
+/* description of the card in professions page */
+    font-size: 15px;
+}
+                                            /* professions css */
+
 
 /* 404.html css */
 .back-button2{
